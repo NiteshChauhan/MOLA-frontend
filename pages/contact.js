@@ -3,9 +3,54 @@ import Link from "next/link"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter , faSkype, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import Head from 'next/head'
-
+import { useState } from "react";
+import axios from "axios";
 
 export default function Contact() {
+    const [formData, setFormData] = useState({
+    name: "",
+    contact_details: "",
+    brief_description: "",
+    date_of_appointment: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await axios.post("/api/appointment", formData);
+      if (response.data.success) {
+        setMessage("Appointment submitted successfully!");
+        setTimeout(() => {
+          setMessage("");   
+        }, 3000);
+      } else {
+        setMessage("Failed to submit appointment. Please try again.");
+        setTimeout(() => {
+          setMessage("");
+        },3000);
+        setFormData({
+          name: "",
+          contact_details: "",
+          brief_description: "",
+          date_of_appointment: "",
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Failed to submit appointment. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
     return (
         <>
             <Head>
@@ -23,40 +68,53 @@ export default function Contact() {
                                     <div className="contact_form_box_all type_one">
                                         <div className="contact_form_box_inner">
                                             <div className="contact_form_shortcode">
-                                                <form id="contact-form">
+                                                <form id="contact-form"  onSubmit={handleSubmit}>
                                                     <div className="messages" />
                                                     <div className="controls">
                                                         <div className="row">
                                                             <div className="col-sm-12">
                                                                 <div className="form-group">
                                                                     <label> Your Name<br /></label>
-                                                                    <input type="text" name="name" placeholder="Your Name *" required="required" data-error="Enter Your Name" />
+                                                                    <input type="text" name="name" placeholder="Your Name *" 
+                                                                    value={formData.name}
+                                                                    onChange={handleChange}
+                                                                    required="required" data-error="Enter Your Name" />
                                                                     <div className="help-block with-errors" />
                                                                 </div>
                                                             </div>
                                                             <div className="col-sm-12">
                                                                 <div className="form-group">
                                                                     <label> Contact Details<br /></label>
-                                                                    <textarea name="contact_details" required="required" placeholder="Contact Details" rows={5} />
+                                                                    <textarea name="contact_details" required="required" 
+                                                                    value={formData.contact_details}
+                                                                    onChange={handleChange} 
+                                                                    placeholder="Contact Details" rows={5} />
                                                                     <div className="help-block with-errors" />
                                                                 </div>
                                                             </div>
                                                             <div className="col-sm-12">
                                                                 <div className="form-group">
                                                                     <label> Brief Description of what services you require <br /></label>
-                                                                    <textarea name="brief_description" placeholder="Brief Description of what services you require" rows={3} required="required" data-error="Please, enter a brief description of what services you require." />
+                                                                    <textarea name="brief_description" placeholder="Brief Description of what services you require" rows={3} required="required" 
+                                                                    value={formData.brief_description}
+                                                                    onChange={handleChange}
+                                                                    data-error="Please, enter a brief description of what services you require." />
                                                                 </div>
                                                             </div>
                                                             <div className="col-sm-12">
                                                                 <div className="form-group">
                                                                     <label> Date of Appointment <br /></label>
-                                                                    <input type="date" name="date_of_appointment" placeholder="Date of Appointment" required="required" data-error="Please, select a date of appointment." min={new Date().toISOString().split('T')[0]} />
+                                                                    <input type="date" name="date_of_appointment" placeholder="Date of Appointment" required="required" 
+                                                                    value={formData.date_of_appointment}
+                                                                    onChange={handleChange}
+                                                                    data-error="Please, select a date of appointment." min={new Date().toISOString().split('T')[0]} />
                                                                     <div className="help-block with-errors" />
                                                                 </div>
                                                             </div>
                                                             <div className="col-sm-12">
                                                                 <div className="form-group mg_top apbtn">
-                                                                    <button className="theme_btn" type="submit">Appointment</button>
+                                                                    <button className="theme_btn" type="submit" disabled={loading}> {loading ? "Submitting..." : "Submit Appointment"}</button>
+                                                                    {message && <p className="text-success">{message}</p>}
                                                                 </div>
                                                             </div>
                                                         </div>

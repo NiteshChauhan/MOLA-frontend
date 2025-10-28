@@ -1,521 +1,224 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+
 export default function Navbar() {
-    const router = useRouter();
-    const currentPath = (router.asPath || "/").split(/[?#]/)[0].replace(/\/+$/, "") || "/";
+  const [currentPath, setCurrentPath] = useState("/");
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
 
-    const isActive = (path) => {
-        if (!path) return false;
-        const normalized = path.replace(/\/+$/, "") || "/";
-        if (normalized === "/") return currentPath === "/";
-        return currentPath === normalized || currentPath.startsWith(normalized + "/");
-    };
+  useEffect(() => {
+    const path = window.location.pathname || "/";
+    setCurrentPath(path);
+  }, []);
 
+  const isActive = (path) =>
+    currentPath === path || currentPath.startsWith(path + "/");
+
+  const NavLinkItem = ({ href, children, isDropdownItem = false }) => {
+    const active = isActive(href);
     return (
-        <>
+      <li
+        className={`menu-item ${active ? "active" : ""}`}
+        style={{
+          listStyle: "none",
+          position: "relative",
+        }}
+      >
+        <Link
+          href={href}
+          className={`nav-link ${isDropdownItem ? "dropdown-item" : ""}`}
+          style={{
+            display: "inline-block",
+            padding: isDropdownItem ? "6px 12px" : "12px 18px",
+            whiteSpace: "nowrap",
+            textDecoration: "none",
+            fontWeight: active ? "600" : "500",
+            color: active ? "#0d6efd" : "#333",
+            backgroundColor: active ? "rgba(13, 110, 253, 0.1)" : "transparent",
+            borderRadius: "6px",
+            transition: "all 0.2s ease",
+          }}
+        >
+          {children}
+        </Link>
+      </li>
+    );
+  };
 
-            {/* <ul className="sub-menu">
-                <Link className={router.pathname == "/" ? "active" : ""}>Home Default</Link>
-                <Link className={router.pathname == "/index-2" ? "active" : ""}>Home Interior</Link>
-            </ul> */}
-            <ul id="myNavbar" className="navbar_nav">
-                <li className={`menu-item menu-item-has-children dropdown nav-item ${isActive("/") ? "active" : ""}`}>
-                <Link href="/" className="dropdown-toggle nav-link">
-                    <span>Estate</span>
-                </Link>
-                <ul className="dropdown-menu">
-                    <li className={`menu-item nav-item ${isActive("/") ? "active" : ""}`}>
-                    <Link href="/" className="dropdown-item nav-link">
-                        <span>Intestate Estate</span>
-                    </Link>
-                    </li>
-                    <li className={`menu-item nav-item ${isActive("/") ? "active" : ""}`}>
-                    <Link href="/" className="dropdown-item nav-link">
-                        <span>Testate Estates</span>
-                    </Link>
-                    </li>
+  const column1Links = [
+    { href: "/estate-admin/terms", label: "Common Terms" },
+    { href: "/estate-admin/intestate", label: "Intestate Estate" },
+    { href: "/estate-admin/partial", label: "Partially Intestate" },
+    { href: "/estate-admin/testate", label: "Testate Estates" },
+    { href: "/estate-admin/apply", label: "Who can apply?" },
+  ];
+
+  const column2Links = [
+    { href: "/estate-admin/minors-and-estates", label: "Minors and Estates" },
+    { href: "/estate-admin/small-estates", label: "Small Estates" },
+    { href: "/estate-admin/special-classes", label: "Special Classes Of Person" },
+    { href: "/estate-admin/initiate-process", label: "Initiate Process" },
+    { href: "/estate-admin/faq", label: "FAQ" },
+  ];
+
+  return (
+    <nav
+      style={{
+        background: "#fff",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        position: "relative",
+        zIndex: 1000,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "0 20px",
+        }}
+      >
+        <ul
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            listStyle: "none",
+            padding: 0,
+            margin: 0,
+            gap: "6px",
+            flexWrap: "nowrap",
+          }}
+        >
+          {/* Funeral Payment */}
+          <NavLinkItem href="/funeral-payment">Funeral Payment</NavLinkItem>
+
+          {/* Estate Administration (Mega Menu) */}
+          <li
+            onMouseEnter={() => setIsMegaMenuOpen(true)}
+            onMouseLeave={() => setIsMegaMenuOpen(false)}
+            className={`menu-item ${
+              isActive("/estate-administration") ? "active" : ""
+            }`}
+            style={{ position: "relative" }}
+          >
+            <Link
+              href="/estate-administration"
+              className="nav-link"
+              style={{
+                display: "inline-block",
+                padding: "12px 18px",
+                whiteSpace: "nowrap",
+                textDecoration: "none",
+                fontWeight: isActive("/estate-administration") ? "600" : "500",
+                color: isActive("/estate-administration") ? "#0d6efd" : "#333",
+                backgroundColor: isActive("/estate-administration")
+                  ? "rgba(13, 110, 253, 0.1)"
+                  : "transparent",
+                borderRadius: "6px",
+                transition: "all 0.2s ease",
+              }}
+            >
+              Estate Administration <span style={{ fontSize: "11px" }}>▼</span>
+            </Link>
+
+            {/* Mega Menu */}
+            <div
+              style={{
+                display: isMegaMenuOpen ? "flex" : "none",
+                position: "absolute",
+                top: "100%",
+                left: "0",
+                background: "#fff",
+                borderRadius: "10px",
+                boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                minWidth: "550px",
+                padding: "20px 30px",
+                justifyContent: "space-between",
+                animation: "fadeIn 0.3s ease forwards",
+              }}
+            >
+              <div style={{ flex: 1, paddingRight: "25px" }}>
+                <h5
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "600",
+                    marginBottom: "10px",
+                    color: "#0d6efd",
+                  }}
+                >
+                  Overview
+                </h5>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {column1Links.map((link) => (
+                    <NavLinkItem
+                      key={link.href}
+                      href={link.href}
+                      isDropdownItem={true}
+                    >
+                      {link.label}
+                    </NavLinkItem>
+                  ))}
                 </ul>
-                <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
-                </li>
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  paddingLeft: "25px",
+                  borderLeft: "1px solid #eee",
+                }}
+              >
+                <h5
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "600",
+                    marginBottom: "10px",
+                    color: "#0d6efd",
+                  }}
+                >
+                  Estate Process
+                </h5>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {column2Links.map((link) => (
+                    <NavLinkItem
+                      key={link.href}
+                      href={link.href}
+                      isDropdownItem={true}
+                    >
+                      {link.label}
+                    </NavLinkItem>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
 
-                <li className={`menu-item nav-item ${isActive("/minors-and-estates") ? "active" : ""}`}>
-                <Link href="/" className="dropdown-toggle nav-link">
-                    <span>Minors and Estates</span>
-                </Link>
-                </li>
+          {/* Other Pages */}
+          <NavLinkItem href="/legislation">Legislation</NavLinkItem>
+          <NavLinkItem href="/blog">Blogs</NavLinkItem>
+          <NavLinkItem href="/services">Services</NavLinkItem>
+          <NavLinkItem href="/downloads">Downloads</NavLinkItem>
+        </ul>
+      </div>
 
-                <li className={`menu-item nav-item ${isActive("/legislation") ? "active" : ""}`}>
-                <Link href="/" className="dropdown-toggle nav-link">
-                    <span>Legislation</span>
-                </Link>
-                </li>
-
-                <li className={`menu-item nav-item ${isActive("/amendment") ? "active" : ""}`}>
-                <Link href="/" className="dropdown-toggle nav-link">
-                    <span>Amendment</span>
-                </Link>
-                </li>
-
-                <li className={`menu-item nav-item ${isActive("/contact") ? "active" : ""}`}>
-                <Link href="/contact" className="dropdown-toggle nav-link">
-                    <span>Contact Us</span>
-                </Link>
-                </li>
-
-                <li className={`menu-item nav-item ${isActive("/downloads") ? "active" : ""}`}>
-                <Link href="/" className="dropdown-toggle nav-link">
-                    <span>Downloads</span>
-                </Link>
-                </li>
-
-                <li className={`menu-item nav-item ${isActive("/other") ? "active" : ""}`}>
-                <Link href="/" className="dropdown-toggle nav-link">
-                    <span>Other</span>
-                </Link>
-                </li>
-      
-                {/* End Of navbar  */}
-                {/* <li className="menu-item menu-item-has-children dropdown dropdown_full position-static mega_menu nav-item">
-                    <Link href="/" className="dropdown-toggle nav-link">
-                        <span>Home</span>
-                        <span className="fa fa-angle-down"></span>
-                    </Link>
-                    <ul className="dropdown-menu width_60_percentage">
-                        <li>
-                            <div className="row">
-                                <div className="col-lg-3 m_column">
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/">Home Page -
-                                                        01</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-2">Home Page -
-                                                        02</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-3">Home Page -
-                                                        03</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-4">Home Page -
-                                                        04</Link>
-                                                </small>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-3 m_column">
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-5">Home Page -
-                                                        05</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-6">Home Page -
-                                                        06</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-7">Home Page -
-                                                        07</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-8">Home Page -
-                                                        08</Link>
-                                                </small>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-3 m_column">
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-9">Home Page -
-                                                        09</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-10">Home Page -
-                                                        10</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-11">Home Page -
-                                                        11</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-12">Home Page -
-                                                        12</Link>
-                                                </small>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-3 m_column">
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-13">Home Page -
-                                                        13</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-14">Home Page -
-                                                        14</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-15">Home Page -
-                                                        15</Link>
-                                                </small>
-                                            </li>
-                                            <li>
-                                                <small className="d-flex align-items-center">
-                                                    <i className="icon-home only_icon" />
-                                                    <Link className="nav_link" href="/home-16">Home Page -
-                                                        16</Link>
-                                                </small>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/#" className="dropdown-toggle nav-link">
-                        <span>Pages</span>
-                    </Link>
-                    <ul className="dropdown-menu">
-                        <li className="menu-item  nav-item">
-                            <Link href="/about-us" className="dropdown-item nav-link">
-                                <span>About Us</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item menu-item-has-children dropdown nav-item">
-                            <Link href="/service-default" className="dropdown-item nav-link"><span>Service</span></Link>
-                            <ul className="dropdown-menu">
-                                <li className="menu-item  nav-item">
-                                    <Link href="/service-classic" className="dropdown-item nav-link">
-                                        <span>Service Classic</span>
-                                    </Link>
-                                </li>
-                                <li className="menu-item  nav-item">
-                                    <Link href="/service-default" className="dropdown-item nav-link">
-                                        <span>Service Default</span>
-                                    </Link>
-                                </li>
-                                <li className="menu-item nav-item">
-                                    <Link href="/service-details" className="dropdown-item nav-link">
-                                        <span>Service Details</span>
-                                    </Link>
-                                </li>
-                            </ul>
-                            <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/pricing-packages" className="dropdown-item nav-link">
-                                <span>Pricing Packages</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/our-team" className="dropdown-item nav-link">
-                                <span>Our Team</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/faqs" className="dropdown-item nav-link">
-                                <span>Faq’s</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/contact" className="dropdown-item nav-link">
-                                <span>Contact</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/coming-soon" className="dropdown-item nav-link">
-                                <span>Coming Soon</span>
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
-                </li>
-                <li className="menu-item menu-item-has-children dropdown dropdown_full position-static mega_menu nav-item">
-                    <Link href="/#" className="dropdown-toggle nav-link"><span>Elements</span> <span className="fa fa-angle-down"></span></Link>
-                    <ul className="dropdown-menu width_60_percentage">
-                        <li>
-                            <div className="row">
-                                <div className="col-lg-2 m_column">
-                                    <h5>Content 01</h5>
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li><Link href="/elements/testimonial">Testimonial</Link>
-                                            </li>
-                                            <li><Link href="/elements/call-to-action">Contact
-                                                List</Link>
-                                            </li>
-                                            <li><Link href="/elements/video-button">Video
-                                                Button</Link></li>
-                                            <li><Link href="/elements/newsteller">Newsteller</Link>
-                                            </li>
-                                            <li><Link href="/elements/blog-posts">Blog
-                                                Posts</Link></li>
-                                            <li><Link href="/elements/team">Team</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 m_column">
-                                    <h5>Content 02</h5>
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li><Link href="/elements/process">Process</Link>
-                                            </li>
-                                            <li><Link href="/elements/project-carousel">Project
-                                                Carousel</Link></li>
-                                            <li><Link href="/elements/project-filter">Project
-                                                Filter</Link>
-                                            </li>
-                                            <li><Link href="/elements/progress-bar">Progress
-                                                Bar</Link></li>
-                                            <li><Link href="/elements/content-box">Content
-                                                Box</Link></li>
-                                            <li><Link href="/elements/faqs-elements">Faq’s</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 m_column">
-                                    <h5>Presentational</h5>
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li><Link href="/elements/button">Button</Link>
-                                            </li>
-                                            <li><Link href="/elements/list-items">List
-                                                Items</Link></li>
-                                            <li><Link href="/elements/contact-form">Contact
-                                                Form</Link></li>
-                                            <li><Link href="/elements/service-post">Service
-                                                Post</Link></li>
-                                            <li><Link href="/elements/sliders">Sliders</Link>
-                                            </li>
-                                            <li><Link href="/elements/tabs">Tabs</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 m_column">
-                                    <h5>Typography</h5>
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li><Link href="/elements/call-to-action">Call
-                                                to Action</Link>
-                                            </li>
-                                            <li><Link href="/elements/extra-content">Extra
-                                                Content</Link>
-                                            </li>
-                                            <li><Link href="/elements/simple-image">Simple
-                                                Image</Link></li>
-                                            <li><Link href="/elements/client-image">Client
-                                                Image</Link></li>
-                                            <li><Link href="/elements/price-plan">Price
-                                                Plan</Link></li>
-                                            <li><Link href="/elements/title">Title</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 m_column">
-                                    <h5>Basic</h5>
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li><Link href="/elements/service-box">Service
-                                                Box</Link></li>
-                                            <li><Link href="/elements/count-down">Count
-                                                Down</Link></li>
-                                            <li><Link href="/elements/timeline">Time
-                                                Line</Link></li>
-                                            <li><Link href="/elements/contact-box">Contact
-                                                Box</Link></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 m_column">
-                                    <h5>Infographic</h5>
-                                    <div className="list_item_box style_one">
-                                        <ul>
-                                            <li><Link href="/elements/image-box">Image
-                                                Box</Link></li>
-                                            <li><Link href="/elements/icon-box">Icon
-                                                Box</Link></li>
-                                            <li><Link href="/elements/fun-facts">Fun
-                                                Facts</Link></li>
-                                            <li><Link href="/elements/quotes">Quotes</Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/blog" className="dropdown-toggle nav-link">
-                        <span>Blog</span>
-                    </Link>
-                    <ul className="dropdown-menu">
-                        <li className="menu-item nav-item">
-                            <Link href="/blog" className="dropdown-item nav-link">
-                                <span>Blog Classic</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/blog-modern" className="dropdown-item nav-link">
-                                <span>Blog Modern</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/blog-simple" className="dropdown-item nav-link">
-                                <span>Blog Simple</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/blog-list-view" className="dropdown-item nav-link">
-                                <span>Blog List View</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/blog-metro-fullwidth" className="dropdown-item nav-link">
-                                <span>Metro Fullwidth</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item nav-item">
-                            <Link href="/blog-single" className="dropdown-item nav-link">
-                                <span>Single Post</span>
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
-                </li>
-                <li className="menu-item menu-item-has-children dropdown nav-item">
-                    <Link href="/project-1-column-grid" className="dropdown-toggle nav-link">
-                        <span>Projects</span>
-                    </Link>
-                    <ul className="dropdown-menu">
-                        <li className="menu-item  nav-item">
-                            <Link href="/project-1-column-grid" className="dropdown-item nav-link">
-                                <span>1 Column Grid</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/project-1-column-with-sidebar" className="dropdown-item nav-link">
-                                <span>1 Column With Sidebar</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/project-2-column-grid" className="dropdown-item nav-link">
-                                <span>2 Columns Grid</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/project-3-column-grid" className="dropdown-item nav-link">
-                                <span>3 Columns Grid</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/project-3-column-overlay" className="dropdown-item nav-link">
-                                <span>3 Columns Overlay</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item nav-item">
-                            <Link href="/project-details" className="dropdown-item nav-link">
-                                <span>Project Details</span>
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
-                </li>
-                <li className="menu-item  menu-item-has-children dropdown nav-item">
-                    <Link href="/shop" className="dropdown-toggle nav-link">
-                        <span>Shop</span>
-                    </Link>
-                    <ul className="dropdown-menu">
-                        <li className="menu-item  nav-item">
-                            <Link href="/shop" className="dropdown-item nav-link">
-                                <span>Products</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item nav-item">
-                            <Link href="/shop-details" className="dropdown-item nav-link">
-                                <span>Product Details</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item nav-item">
-                            <Link href="/shop-with-sidebar" className="dropdown-item nav-link">
-                                <span>Product With Sidebar</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/my-account" className="dropdown-item nav-link">
-                                <span>My account</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/checkout" className="dropdown-item nav-link">
-                                <span>Checkout</span>
-                            </Link>
-                        </li>
-                        <li className="menu-item  nav-item">
-                            <Link href="/cart" className="dropdown-item nav-link">
-                                <span>Cart</span>
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="dropdown-btn"><span className="fa fa-angle-down"></span></div>
-                </li> */}
-            </ul>
-        </>
-    )
+      <style jsx>{`
+        .menu-item .nav-link:hover {
+          color: #0d6efd !important;
+          background-color: rgba(13, 110, 253, 0.08);
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+    </nav>
+  );
 }

@@ -90,20 +90,17 @@ export default function AboutUs() {
 
           <div className="description_box">
             <p>
-              The Public Trustee of Guyana is a government-established Office with perpetual
-              succession that is responsible for the administration of deceased persons Estates.
+              The Public Trustee of Guyana is a corporate body established by statute and an Office with perpetual succession that acts in the administration of deceased persons estates where no one else is available or willing to act.
             </p>
             <h4>The Powers of the Public Trustee are:</h4>
             <ul>
               <li>Act in the administration of the estates of deceased persons</li>
               <li>Act as executor or administrator of a will</li>
               <li>
-                Act as guardian or committee, or receiver, of the property of any infant or other
-                person under disability
+                Act as guardian or committee, or receiver, of the property of any infant or other person under disability, as the case may be and
               </li>
               <li>
-                Take possession of and administer the estate of any person who is absent from Guyana
-                and not fully represented by any attorney in Guyana, and who has left debts unpaid
+                Take possession of and administer the estate of any person who is absent from Guyana and who is not fully represented by any attorney in Guyana, and who has left debts unpaid.
               </li>
             </ul>
           </div>
@@ -432,7 +429,7 @@ id="valuesTabs"
                   <div className="content_image">
                     <h2>Service Excellence</h2>
                     <p>
-                      Striving to improve services continuously, listening to feedback, and making
+                      Striving to improve services continuously, listening to feedback and making
                       client-focused improvements.
                     </p>
                   </div>
@@ -471,18 +468,23 @@ id="valuesTabs"
                                         <ul>
                                             <li>
                                                 <p>
-                                                    The Public Trustee is accountable to the government and operates under statutory duty so there is less risk of fraud and mismanagement;
+                                                    The Public Trustee is accountable to the government and operates under a statutory duty so there is less risk of fraud and mismanagement.
                                                 </p>
                                             </li>
                                             <li>
                                                 <p>
-                                                    Our services are cheaper than private lawyers or executors because the fees are government-regulated, which can be very helpful for low and or middle-income families needing estate services but lacking resources.
+                                                    Our services cater for low and middle-income families needing estate services but lacking resources.
                                                 </p>
                                             </li>
                                             <li>
                                                 <p>
                                                     Provides safeguards for assets and interest of minors.
                                                 </p>
+                                            </li>
+                                            <li>
+                                              <p>
+                                                Where no one is available or willing to administer the estate of a deceased person.
+                                              </p>
                                             </li>
                                         </ul>
                                     </div>

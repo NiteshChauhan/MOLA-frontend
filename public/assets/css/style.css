@@ -597,3 +597,50 @@ input[type="password"]{
 .svg-inline--fa.fa-instagram.fa-2x {
   display: none;
 }
+
+/* Nave bar mega menu css*/
+
+/* Example CSS structure to implement the mega menu columns */
+.mega-menu {
+    position: absolute; /* Or relative, depending on your theme's navbar */
+    left: 0;
+    /*width: 500px;*/ /* Adjust width as needed */
+    z-index: 1000;
+    /* Add background, border, shadow styles */
+}
+
+.mega-menu-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.mega-menu-column {
+    flex: 1;
+    min-width: 200px; /* Ensure columns have space */
+    padding: 0 15px;
+}
+
+/* New Css */
+
+/* Header navigation alignment fix */
+.header_menu_box nav > div {
+  margin: 0 !important;             /* Remove negative margin */
+  justify-content: flex-start !important; /* Align menu to left */
+  align-items: center !important;
+  max-width: 100% !important;       /* Avoid fixed width cutoff */
+  padding: 0 15px !important;
+}
+
+/* Adjust nav item spacing */
+.header_menu_box nav ul {
+  gap: 12px !important;
+}
+
+/* Keep right icons aligned properly */
+.header_right_content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
