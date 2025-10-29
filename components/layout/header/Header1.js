@@ -42,6 +42,13 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                             <small>Survey</small>
                                         </Link>
                                         </div>
+
+                                        <div className={`contntent survey ${isActive("/contact") ? "active" : ""}`} style={{ margin: "0 5px" }}>
+                                        <i className="fas fa-chart-pie" />
+                                        <Link href="/contact" className="text">
+                                            <small>Contact Us</small>
+                                        </Link>
+                                        </div>
                                     </div>
                                     <div className="right_side common_css">
                                         <div className="contntent phone">

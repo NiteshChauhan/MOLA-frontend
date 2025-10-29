@@ -89,7 +89,7 @@ export default function Footer1({ }) {
                             <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
                                 <div className="footer_widgets wid_tit style_one">
                                     <div className="fo_wid_title">
-                                        <h2>Company</h2>
+                                        <h2>Quick Links</h2>
                                     </div>
                                 </div>
                                 {/*===============spacing==============*/}
@@ -101,10 +101,11 @@ export default function Footer1({ }) {
                                             <ul className="menu">
                                                 <li className={`footer-menu-item ${isActive("/") ? "active" : ""}`}><Link href="/">Home</Link></li>
                                                 <li className={`footer-menu-item ${isActive("/about-us") ? "active" : ""}`}><Link href="/about-us">About Us</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/contact") ? "active" : ""}`}><Link href="/contact">Contact</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/professionals") ? "active" : ""}`}><Link href="#">Professionals</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/insights") ? "active" : ""}`}><Link href="#">Insights</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/hr-solutions") ? "active" : ""}`}><Link href="#">HR Solutions</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/contact") ? "active" : ""}`}><Link href="/contact">Contact Us</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/survey") ? "active" : ""}`}><Link href="#">Survey</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/services") ? "active" : ""}`}><Link href="#">Services</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/funeral-payment") ? "active" : ""}`}><Link href="#">Funeral Payment</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/estate-administration") ? "active" : ""}`}><Link href="/estate-administration">Estate Administration</Link></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -113,7 +114,7 @@ export default function Footer1({ }) {
                             <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
                                 <div className="footer_widgets wid_tit style_one">
                                     <div className="fo_wid_title">
-                                        <h2>Information</h2>
+                                        <h2>Estate & Trust Services</h2>
                                     </div>
                                 </div>
                                 {/*===============spacing==============*/}
@@ -124,11 +125,16 @@ export default function Footer1({ }) {
                                         <div className="navigation_foo_box">
                                             <div className="navigation_foo_inner">
                                                 <ul className="menu">
-                                                    <li className={`footer-menu-item ${isActive("/") ? "active" : ""}`}><Link href="#">How it’s Work</Link></li>
-                                                    <li className={`footer-menu-item ${isActive("/partners") ? "active" : ""}`}><Link href="/partners">Partners</Link></li>
-                                                    <li className={`footer-menu-item ${isActive("/testimonials") ? "active" : ""}`}><Link href="/testimonials">Testimonials</Link></li>
-                                                    <li className={`footer-menu-item ${isActive("/key-areas") ? "active" : ""}`}><Link href="/key-areas">Key Areas</Link></li>
-                                                    <li className={`footer-menu-item ${isActive("/case-studies") ? "active" : ""}`}><Link href="/case-studies">Case Studies</Link></li>
+                                                    
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/apply") ? "active" : ""}`}><Link href="/estate-admin/apply">Who Can Apply?</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/terms") ? "active" : ""}`}><Link href="/estate-admin/terms">Common Terms</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/intestate") ? "active" : ""}`}><Link href="/estate-admin/intestate">Intestate Estates</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/testate") ? "active" : ""}`}><Link href="/estate-admin/testate">Testate Estates</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/partial") ? "active" : ""}`}><Link href="/estate-admin/partial">Partially Intestate</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/minors-and-estates") ? "active" : ""}`}><Link href="/estate-admin/minors-and-estates">Minor and Estates</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/small-estates") ? "active" : ""}`}><Link href="/estate-admin/small-estates">Small Estates</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/special-classes") ? "active" : ""}`}><Link href="/estate-admin/special-classes">Special Classes of Person</Link></li>
+                                                    <li className={`footer-menu-item ${isActive("/estate-admin/initiate-process") ? "active" : ""}`}><Link href="/estate-admin/initiate-process">Initiate the Process</Link></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -138,7 +144,7 @@ export default function Footer1({ }) {
                             <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
                                 <div className="footer_widgets wid_tit style_one">
                                     <div className="fo_wid_title">
-                                        <h2>Essentials</h2>
+                                        <h2>Resources & Information</h2>
                                     </div>
                                 </div>
                                 {/*===============spacing==============*/}
@@ -148,12 +154,12 @@ export default function Footer1({ }) {
                                     <div className="navigation_foo_box">
                                         <div className="navigation_foo_inner">
                                             <ul className="menu">
-                                                <li className={`footer-menu-item ${isActive("/") ? "active" : ""}`}><Link href="#">Careers</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/infrastructure") ? "active" : ""}`}><Link href="/infrastructure">Infrastructure</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/client-support") ? "active" : ""}`}><Link href="/client-support">Client Support</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/privacy-policy") ? "active" : ""}`}><Link href="/privacy-policy">Privacy Policy</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/terms-of-use") ? "active" : ""}`}><Link href="/terms-of-use">Terms of Use</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/sitemap") ? "active" : ""}`}><Link href="/sitemap">Sitemap</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/estate-admin/faq") ? "active" : ""}`}><Link href="/estate-admin/faq">FAQ</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/legislation") ? "active" : ""}`}><Link href="/legislation">Legislation</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/blog") ? "active" : ""}`}><Link href="/blog">Blogs / News</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/downloads") ? "active" : ""}`}><Link href="/downloads">Downloads</Link></li>
+                                                {/* <li className={`footer-menu-item ${isActive("/terms-of-use") ? "active" : ""}`}><Link href="/terms-of-use">Terms of Use</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/sitemap") ? "active" : ""}`}><Link href="/sitemap">Sitemap</Link></li> */}
                                             </ul>
                                         </div>
                                     </div>

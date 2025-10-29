@@ -46,11 +46,11 @@ export default function Navbar() {
   };
 
   const column1Links = [
+    { href: "/estate-admin/apply", label: "Who can apply?" },
     { href: "/estate-admin/terms", label: "Common Terms" },
     { href: "/estate-admin/intestate", label: "Intestate Estate" },
     { href: "/estate-admin/partial", label: "Partially Intestate" },
     { href: "/estate-admin/testate", label: "Testate Estates" },
-    { href: "/estate-admin/apply", label: "Who can apply?" },
   ];
 
   const column2Links = [

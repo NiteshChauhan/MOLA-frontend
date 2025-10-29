@@ -67,10 +67,10 @@ export default function IntestateEstatesPage() {
                                 {/* SECTION: DEFINITION */}
                                 <div className="definition-section" style={{ padding: '20px', backgroundColor: '#e9f7ff', borderRadius: '8px', borderLeft: '4px solid #007bff' }}>
                                     <p style={{ margin: 0, fontSize: '1.1rem', color: '#007bff' }}>
-                                        When someone dies **without leaving a valid Will**, they are deemed to have died **Intestate**.
+                                        When someone dies without leaving a valid Will, they are deemed to have died Intestate.
                                     </p>
                                     <p style={{ marginTop: '10px', color: '#555' }}>
-                                        In intestate estates, the assets are distributed strictly according to the **rules of intestacy** as defined by law.
+                                        In intestate estates, the assets are distributed strictly according to the rules of intestacy as defined by law.
                                     </p>
                                 </div>
 
@@ -83,35 +83,35 @@ export default function IntestateEstatesPage() {
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
                                             <strong style={{ color: '#28a745' }}>1. If there is a Surviving Spouse and Children:</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
-                                                The **surviving spouse** (husband or wife of the deceased, including common law spouse) shall receive **one third (1/3)** of the whole estate, and the **surviving children** of the deceased shall receive the remaining **two thirds (2/3)** of the whole estate, shared equally among them.
+                                                The surviving spouse (husband or wife of the deceased, including common law spouse) shall receive one third (1/3) of the whole estate, and the surviving children of the deceased shall receive the remaining two thirds (2/3) of the whole estate, shared equally among them.
                                             </p>
                                         </li>
 
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
                                             <strong style={{ color: '#28a745' }}>2. If there are Children but No Spouse:</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
-                                                If the deceased was never legally married nor had a common law spouse but had children at the time of death, the assets of the estate shall be distributed **equally among the children** of the estate.
+                                                If the deceased was never legally married nor had a common law spouse but had children at the time of death, the assets of the estate shall be distributed equally among the children of the estate.
                                             </p>
                                         </li>
 
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
                                             <strong style={{ color: '#28a745' }}>3. If there is a Spouse but No Children:</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
-                                                If the deceased died leaving a spouse but had no children, then the **surviving spouse** (widow/widower) shall take the **whole of the estate**.
+                                                If the deceased died leaving a spouse but had no children, then the surviving spouse (widow/widower) shall take the whole of the estate.
                                             </p>
                                         </li>
 
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
                                             <strong style={{ color: '#28a745' }}>4. If there is No Spouse and No Children (but Parents survive):</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
-                                                If the deceased had no surviving spouse or children, then the assets of the estate shall be given in **equal shares to the parents** of the deceased.
+                                                If the deceased had no surviving spouse or children, then the assets of the estate shall be given in equal shares to the parents of the deceased.
                                             </p>
                                         </li>
                                         
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
                                             <strong style={{ color: '#28a745' }}>5. If there is No Spouse, Children, or Parents (but Siblings survive):</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
-                                                If the deceased had no surviving spouse, children, nor parents, then the estate shall be divided **equally amongst the siblings** of the deceased.
+                                                If the deceased had no surviving spouse, children, nor parents, then the estate shall be divided equally amongst the siblings of the deceased.
                                             </p>
                                         </li>
 
@@ -122,7 +122,7 @@ export default function IntestateEstatesPage() {
                                 <div className="application-note" style={{ marginTop: '30px', padding: '15px', borderLeft: '5px solid #ffc107', backgroundColor: '#fff3cd', borderRadius: '5px' }}>
                                     <p style={{ fontWeight: 'bold', margin: '0 0 5px 0', color: '#856404' }}>Application Requirement:</p>
                                     <p style={{ margin: 0, color: '#856404' }}>
-                                        In an intestate estate, the **heirs MUST each give consent** to one heir to make an application to the Public Trustee to administer the estate of a deceased person.
+                                        In an intestate estate, the heirs MUST each give consent to one heir to make an application to the Public Trustee to administer the estate of a deceased person.
                                     </p>
                                 </div>
                                 
