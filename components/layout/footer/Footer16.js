@@ -152,7 +152,7 @@ export default function Footer16({ }) {
                                     <div className="social_media_v_one style_two">
                                         <ul>
                                             <li>
-                                                <Link href="#"> <span className="fa fa-facebook" />
+                                                <Link href="https://www.facebook.com/profile.php?id=100094381023483"> <span className="fa fa-facebook" />
                                                     <small>facebook</small>
                                                 </Link>
                                             </li>
@@ -167,7 +167,7 @@ export default function Footer16({ }) {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#"> <span className="fa fa-instagram" />
+                                                <Link href="https://www.instagram.com/publictrusteeofficialreceiver/"> <span className="fa fa-instagram" />
                                                     <small>instagram</small>
                                                 </Link>
                                             </li>

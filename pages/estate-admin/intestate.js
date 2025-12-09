@@ -57,7 +57,7 @@ export default function IntestateEstatesPage() {
                             <div className="col-xl-12 col-lg-12">
                                 <div className="title_all_box style_one dark_color">
                                     <div className="title_sections left">
-                                        <div className="before_title">No Will</div>
+                                        {/* <div className="before_title">No Will</div> */}
                                         <h2>Intestate Estates</h2>
                                     </div>
                                 </div>
@@ -76,40 +76,40 @@ export default function IntestateEstatesPage() {
 
                                 {/* SECTION: DISTRIBUTION RULES */}
                                 <div className="distribution-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #28a745', paddingBottom: '10px', color: '#28a745', marginBottom: '20px' }}>Distribution of Assets (Order of Priority)</h3>
+                                    <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff', marginBottom: '20px' }}>Distribution of Assets (Order of Priority)</h3>
                                     
                                     <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                                         
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
-                                            <strong style={{ color: '#28a745' }}>1. If there is a Surviving Spouse and Children:</strong>
+                                            <strong style={{ color: '#007bff' }}>1. If there is a Surviving Spouse and Children:</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
                                                 The surviving spouse (husband or wife of the deceased, including common law spouse) shall receive one third (1/3) of the whole estate, and the surviving children of the deceased shall receive the remaining two thirds (2/3) of the whole estate, shared equally among them.
                                             </p>
                                         </li>
 
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
-                                            <strong style={{ color: '#28a745' }}>2. If there are Children but No Spouse:</strong>
+                                            <strong style={{ color: '#007bff' }}>2. If there are Children but No Spouse:</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
                                                 If the deceased was never legally married nor had a common law spouse but had children at the time of death, the assets of the estate shall be distributed equally among the children of the estate.
                                             </p>
                                         </li>
 
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
-                                            <strong style={{ color: '#28a745' }}>3. If there is a Spouse but No Children:</strong>
+                                            <strong style={{ color: '#007bff' }}>3. If there is a Spouse but No Children:</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
                                                 If the deceased died leaving a spouse but had no children, then the surviving spouse (widow/widower) shall take the whole of the estate.
                                             </p>
                                         </li>
 
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
-                                            <strong style={{ color: '#28a745' }}>4. If there is No Spouse and No Children (but Parents survive):</strong>
+                                            <strong style={{ color: '#007bff' }}>4. If there is No Spouse and No Children (but Parents survive):</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
                                                 If the deceased had no surviving spouse or children, then the assets of the estate shall be given in equal shares to the parents of the deceased.
                                             </p>
                                         </li>
                                         
                                         <li style={{ marginBottom: '25px', padding: '10px', border: '1px solid #d4edda', backgroundColor: '#f8f9fa', borderRadius: '4px' }}>
-                                            <strong style={{ color: '#28a745' }}>5. If there is No Spouse, Children, or Parents (but Siblings survive):</strong>
+                                            <strong style={{ color: '#007bff' }}>5. If there is No Spouse, Children, or Parents (but Siblings survive):</strong>
                                             <p style={{ margin: '5px 0 0 0', paddingLeft: '15px' }}>
                                                 If the deceased had no surviving spouse, children, nor parents, then the estate shall be divided equally amongst the siblings of the deceased.
                                             </p>

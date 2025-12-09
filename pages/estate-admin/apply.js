@@ -27,43 +27,43 @@ export default function WhoCanApplyPage() {
                             <div className="col-xl-12 col-lg-12">
                                 <div className="title_all_box style_one dark_color">
                                     <div className="title_sections left">
-                                        <div className="before_title">Eligibility</div>
+                                        <div className="before_title">Take out eligibility</div>
                                         <h2>Who can apply to the Public Trustee to administer the estate of a deceased person?</h2>
                                     </div>
                                 </div>
                                 
                                 <div className="pd_bottom_25" />
                                 
-                                <div className="description_box">
+                                {/* <div className="description_box">
                                     <p>The following categories outline the individuals who may apply to the Public Trustee for the administration of an estate, depending on whether a valid Will exists.</p>
-                                </div>
+                                </div> */}
 
                                 {/* SECTION: WHERE THERE IS A WILL */}
                                 <div className="will-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                                     <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff' }}>Where there is a WILL</h3>
-                                    <ul style={{ listStyleType: 'disc', paddingLeft: '40px' }}>
-                                        <li style={{ marginBottom: '10px' }}>The Executor named in the Will.</li>
-                                        <li style={{ marginBottom: '10px' }}>Any beneficiary holding in trust for any other person.</li>
-                                        <li style={{ marginBottom: '10px' }}>Any beneficiary for life.</li>
-                                        <li style={{ marginBottom: '10px' }}>The ultimate beneficiary or, where the residue is not wholly disposed of by the will, any person entitled to share in the residue not so disposed of, or the personal representative of any such person.</li>
-                                        <li style={{ marginBottom: '10px' }}>Any specific beneficiary or any creditor or the personal representative of any such person. Also, where the estate is not wholly disposed of by the will, any person who, notwithstanding that the amount of the estate is such that he has no immediate beneficial interest therein, may have a beneficial interest in the event of an accretion thereto.</li>
-                                        <li style={{ marginBottom: '10px' }}>Any beneficiary, whether residuary or specific, entitled on the happening of any contingency, or any person having no interest under the will of the deceased who would have been entitled to a grant if the deceased had died wholly intestate.</li>
-                                    </ul>
+                                    <ol style={{ listStyleType: 'decimal', paddingLeft: '40px' }}>
+                                        <li style={{ marginBottom: '10px' }}> The Executor named in the Will;</li>
+                                        <li style={{ marginBottom: '10px' }}> Any beneficiary holding in trust for any other person;</li>
+                                        <li style={{ marginBottom: '10px' }}> Any beneficiary for life;</li>
+                                        <li style={{ marginBottom: '10px' }}> The ultimate beneficiary or, where the residue is not wholly disposed of by the will, any person entitled to share in the residue not so disposed of, or the personal representative of any such person;</li>
+                                        <li style={{ marginBottom: '10px' }}>  Any specific beneficiary or any creditor or the personal representative of any such person. Person or,where the estate is not wholly disposed of by the will, any person who, notwithstanding that the amount of the estate is such that he has no immediate beneficial interest therein, may have a beneficial interest in the event of an accretion thereto;</li>
+                                        <li style={{ marginBottom: '10px' }}> Any beneficiary, whether residuary or specific, entitled on the happening of any contingency, or any person having no interest under the will of the deceased who would have been entitled to a grant if the deceased had died wholly intestate;</li>
+                                    </ol>
                                 </div>
                                 
                                 {/* SECTION: WHERE THERE IS NO WILL (INTESTATE) */}
                                 <div className="intestate-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #28a745', paddingBottom: '10px', color: '#28a745' }}>Where there is NO WILL (Intestate)</h3>
+                                    <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff' }}>Where there is NO WILL (Intestate)</h3>
                                     <p style={{ marginBottom: '15px' }}>In cases of intestacy, applicants are typically considered in the following order of priority based on relationship to the deceased:</p>
                                     <ol style={{ listStyleType: 'decimal', paddingLeft: '40px' }}>
-                                        <li style={{ marginBottom: '10px' }}>Surviving Spouse (including common law spouse).</li>
-                                        <li style={{ marginBottom: '10px' }}>Children of the deceased, (whether in/out of wedlock), or the children of any such child who has died during the lifetime of the deceased.</li>
-                                        <li style={{ marginBottom: '10px' }}>Father or mother of the deceased.</li>
-                                        <li style={{ marginBottom: '10px' }}>Brothers and sisters, or the children of any deceased brother or sister who has died during the lifetime of the deceased.</li>
-                                        <li style={{ marginBottom: '10px' }}>Grandparents.</li>
-                                        <li style={{ marginBottom: '10px' }}>Uncles and aunts of the whole blood, or the children of any deceased uncle or aunt of whole blood who has died during the lifetime of the deceased.</li>
-                                        <li style={{ marginBottom: '10px' }}>Uncles and aunts of the half blood, or the children of any deceased uncle or aunt of half-blood who has died during the lifetime of the deceased.</li>
-                                        <li style={{ marginBottom: '10px' }}>The Public Trustee.</li>
+                                        <li style={{ marginBottom: '10px' }}>Surviving Spouse (including common law spouse);</li>
+                                        <li style={{ marginBottom: '10px' }}>Children of the deceased, (whether in/out of wedlock), or the children of any such child who has died during the lifetime of the deceased;</li>
+                                        <li style={{ marginBottom: '10px' }}>Father or mother of the deceased;</li>
+                                        <li style={{ marginBottom: '10px' }}>Brothers and sisters, or the children of any deceased brother or sister who has died during the lifetime of the deceased;</li>
+                                        <li style={{ marginBottom: '10px' }}>Grandparents;</li>
+                                        <li style={{ marginBottom: '10px' }}>Uncles and aunts of the whole blood, or the children of any deceased uncle or aunt of whole blood who has died during the lifetime of the deceased;</li>
+                                        <li style={{ marginBottom: '10px' }}>Uncles and aunts of the half blood, or the children of any deceased uncle or aunt of half-blood who has died during the lifetime of the deceased;</li>
+                                        <li style={{ marginBottom: '10px' }}>The Public Trustee;</li>
                                     </ol>
                                 </div>
 

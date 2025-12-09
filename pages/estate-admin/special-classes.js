@@ -52,7 +52,7 @@ export default function SpecialClassesPage() {
 
                                 {/* ILLEGITIMATE CHILD SECTION */}
                                 <div className="section-block" style={{ marginBottom: '40px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #28a745', paddingBottom: '10px', color: '#28a745', marginBottom: '15px' }}>Illegitimate Child / Child Born Out of Wedlock</h3>
+                                    <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff', marginBottom: '15px' }}>Illegitimate Child / Child Born Out of Wedlock</h3>
                                     
                                     <p style={{ color: '#555', marginBottom: '15px' }}>
                                         Pursuant to the Civil Law of Guyana Act, Chapter 6:01 (as amended by the Children Born out of Wedlock Act), in determining relationship for the purpose of the rule of intestacy, no regard should be had as to whether any person is born in or out of wedlock. A person born out of wedlock shall have the same rights has a person born in wedlock for the purposes of the rules of intestacy.

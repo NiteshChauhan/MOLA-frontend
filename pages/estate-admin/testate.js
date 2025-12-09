@@ -26,7 +26,7 @@ export default function TestateEstatesPage() {
                             <div className="col-xl-12 col-lg-12">
                                 <div className="title_all_box style_one dark_color">
                                     <div className="title_sections left">
-                                        <div className="before_title">With a Will</div>
+                                        {/* <div className="before_title">With a Will</div> */}
                                         <h2>Testate Estates</h2>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@ export default function TestateEstatesPage() {
 
                                 {/* SUB HEADING: VALIDITY OF WILL */}
                                 <div className="validity-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #28a745', paddingBottom: '10px', color: '#28a745', marginBottom: '20px' }}>Validity of Will</h3>
+                                    <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff', marginBottom: '20px' }}>Validity of Will</h3>
                                     
                                     <h4 style={{ color: '#333', marginTop: '0', marginBottom: '10px' }}>What is a valid will?</h4>
                                     <p style={{ color: '#555' }}>

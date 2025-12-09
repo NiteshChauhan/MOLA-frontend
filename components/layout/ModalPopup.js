@@ -213,7 +213,7 @@ export default function ModalPopup({ isContactPopup, handleContactPopup }) {
                         <p>We value your feedback whether positive or negative because it helps us to monitor, evaluate, and continuously improve the services we provide to meet your needs. </p>
                         {/* <Link href="#">Read More</Link> */}
                     </div>
-                    <div className="post_contet_modal">
+                    {/* <div className="post_contet_modal">
                         <h2> Latest Blogs</h2>
                         <div className="post_enable">
                             <div className="modal_post_grid">
@@ -242,7 +242,7 @@ export default function ModalPopup({ isContactPopup, handleContactPopup }) {
                                 </Link>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
           </div>

@@ -33,9 +33,7 @@ export default function Footer1({ }) {
                                         </div>
                                         <div className="content_box">
                                             <p>
-                                                Duty the obligations of business will frequently occur that pleasure have
-                                                too
-                                                repudiated annoyances endures accepted.
+                                                Providing equitable and efficient estate administration services to Guyanese.
                                             </p>
                                             <div className="consulting">
                                                 <div className="image">
@@ -156,7 +154,7 @@ export default function Footer1({ }) {
                                             <ul className="menu">
                                                 <li className={`footer-menu-item ${isActive("/estate-admin/faq") ? "active" : ""}`}><Link href="/estate-admin/faq">FAQ</Link></li>
                                                 <li className={`footer-menu-item ${isActive("/legislation") ? "active" : ""}`}><Link href="/legislation">Legislation</Link></li>
-                                                <li className={`footer-menu-item ${isActive("/blog") ? "active" : ""}`}><Link href="/blog">Blogs / News</Link></li>
+                                                <li className={`footer-menu-item ${isActive("/media") ? "active" : ""}`}><Link href="/media">Media / News</Link></li>
                                                 <li className={`footer-menu-item ${isActive("/downloads") ? "active" : ""}`}><Link href="/downloads">Downloads</Link></li>
                                                 {/* <li className={`footer-menu-item ${isActive("/terms-of-use") ? "active" : ""}`}><Link href="/terms-of-use">Terms of Use</Link></li>
                                                 <li className={`footer-menu-item ${isActive("/sitemap") ? "active" : ""}`}><Link href="/sitemap">Sitemap</Link></li> */}
@@ -193,19 +191,19 @@ export default function Footer1({ }) {
                                     <div className="social_media_v_one">
                                         <ul>
                                             <li>
-                                                <Link href="#">
+                                                <Link target="blank" href="https://www.facebook.com/profile.php?id=100094381023483">
                                                     <span className="fa fa-facebook" />
                                                     <small>facebook</small>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link target="blank" href="https://www.instagram.com/publictrusteeofficialreceiver/">
                                                     <span className="fa fa-instagram" />
                                                     <small>instagram</small>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link target="blank" href="#">
                                                     <span className="fa fa-youtube" />
                                                     <small>youtube</small>
                                                 </Link>

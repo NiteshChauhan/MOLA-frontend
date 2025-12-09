@@ -16,14 +16,14 @@ export default function Home16() {
             <Layout headerStyle={1} footerStyle={1}>
                 <Banner4 />
                 <Service17 />
-                <About14 />
+                {/* <About14 /> */}
                 <Service18 />
-                <Process9 />
+                {/* <Process9 />
                 <Contact12 />
-                <Contact13 />
+                <Contact13 /> */}
                 <Project13 />
                 <Testimonial12 />
-                <Blog16 />
+                {/* <Blog16 /> */}
             </Layout>
         </>
     )

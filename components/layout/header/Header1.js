@@ -62,10 +62,10 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                             {/* <i className="icon-share" /> */}
                                             <div className="text">
                                                 {/* <small>Share</small> */}
-                                                <Link href="#" >
+                                                <Link target="blank" href="https://www.facebook.com/profile.php?id=100094381023483" >
                                                     <small><FontAwesomeIcon icon={faFacebookF} /></small>
                                                 </Link>
-                                                <Link href="#" >
+                                                <Link target="blank" href="https://www.instagram.com/publictrusteeofficialreceiver/" >
                                                     <small><FontAwesomeIcon icon={faInstagram} /></small>
                                                 </Link>
                                                 <Link href="#" >

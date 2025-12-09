@@ -36,7 +36,7 @@ export default function MobileMenu({ handleMobileMenu }) {
                                 </Link>
                             </li>
                             <li className="menu-item  nav-item">
-                                <Link href="/about" className="dropdown-item nav-link">
+                                <Link href="/about-us" className="dropdown-item nav-link">
                                     <span>About</span>
                                 </Link>
                             </li>
@@ -100,6 +100,12 @@ export default function MobileMenu({ handleMobileMenu }) {
                                                         <li>
                                                             <small className="d-flex align-items-center">
                                                                 <i className="icon-home only_icon" />
+                                                                <Link className="nav_link" href="/estate-admin/know-the-law">Know The Law</Link>
+                                                            </small>
+                                                        </li>
+                                                        <li>
+                                                            <small className="d-flex align-items-center">
+                                                                <i className="icon-home only_icon" />
                                                                 <Link className="nav_link" href="/estate-admin/testate">Testate Estates</Link>
                                                             </small>
                                                         </li>
@@ -153,8 +159,8 @@ export default function MobileMenu({ handleMobileMenu }) {
                                 </Link>
                             </li>
                             <li className="menu-item  nav-item">
-                                <Link href="/blog" className="dropdown-item nav-link">
-                                    <span>Blogs</span>
+                                <Link href="/media" className="dropdown-item nav-link">
+                                    <span>Media</span>
                                 </Link>
                             </li>
                             <li className="menu-item  nav-item">

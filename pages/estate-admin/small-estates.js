@@ -50,7 +50,7 @@ export default function SmallEstatesPage() {
                                 </div>
                                 
                                 {/* SECTION: PUBLIC TRUSTEE POWER */}
-                                <div className="pt-power-section" style={{ marginTop: '30px', padding: '15px', borderLeft: '5px solid #28a745', backgroundColor: '#f0f9f0', borderRadius: '5px' }}>
+                                <div className="pt-power-section" style={{ marginTop: '30px', padding: '15px', borderLeft: '5px solid #007bff', backgroundColor: '#f0f9f0', borderRadius: '5px' }}>
                                     <p style={{ margin: 0, color: '#155724', fontWeight: 'bold' }}>
                                         The Public Trustee is also now empowered to administer an estate of a deceased person without a Grant of Letters of Administration where the value of the estate does not exceed seven hundred and fifty thousand dollars ($\$750,000.00$).
                                     </p>

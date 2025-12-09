@@ -8,14 +8,14 @@ export default function Downloads() {
       title: "Estate Requirements Sheet",
       description:
         "A detailed checklist outlining documents and steps required for estate administration.",
-      pdf: "#",
+      pdf: "/assets/uploads/EstateRequirmentSheet.pdf",
       icon: "📄",
     },
     {
       title: "Funeral Requirement Sheet",
       description:
         "Guidelines and documentation required for funeral-related estate claims and processes.",
-      pdf: "#",
+      pdf: "/assets/uploads/FuneralPaymentRequirementSheet.pdf",
       icon: "⚰️",
     },
     {
@@ -81,7 +81,7 @@ export default function Downloads() {
                       borderRadius: "10px",
                       padding: "25px",
                       boxShadow: "0 3px 10px rgba(0,0,0,0.08)",
-                      borderLeft: "5px solid #28a745",
+                      borderLeft: "5px solid #007bff",
                       transition: "transform 0.3s ease, box-shadow 0.3s ease",
                     }}
                     onMouseOver={(e) => {
@@ -94,7 +94,7 @@ export default function Downloads() {
                     }}
                   >
                     <div style={{ fontSize: "2rem", marginBottom: "10px" }}>{item.icon}</div>
-                    <h4 style={{ color: "#28a745", fontSize: "1.1rem", marginBottom: "5px" }}>
+                    <h4 style={{ color: "#007bff", fontSize: "1.1rem", marginBottom: "5px" }}>
                       {item.title}
                     </h4>
                     {item.subtitle && (

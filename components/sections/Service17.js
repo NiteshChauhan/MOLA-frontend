@@ -11,10 +11,13 @@ export default function Service17() {
                         <div className="col-lg-7">
                             <div className="title_all_box style_one  dark_color">
                                 <div className="title_sections left">
-                                    <div className="title"> Experiences for Employees</div>
-                                    <p> Focus people by understanding employees’ emotions and perspectives at all
-                                        touch points, so you can take action and focus experiences on what
-                                        matters to the people.</p>
+                                    <div className="title"> About Us</div>
+                                    <p> The Public Trustee of Guyana is a corporate body established by statute and an Office with perpetual succession that acts in the administration of deceased persons estates where no one else is available or willing to act... <Link href="/about-us" className="read_more type_one">
+                                        <span className="icon-arrow-right" />
+                                        Read More
+                                    </Link >
+                                     </p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -27,17 +30,16 @@ export default function Service17() {
                             <div className="icon_box_all  style_eight">
                                 <div className="icon_content">
                                     <div className="icon">
-                                        <span className=" icon-support" />
+                                        <span className=" icon-audit-2" />
                                     </div>
                                     <div className="text_box">
                                         <h2>
-                                            <Link href="#">
-                                                24/7 Customer support
+                                            <Link href="/estate-admin/terms">
+                                                Will
                                             </Link >
                                         </h2>
                                         <p>
-                                            The less water you use, the less runoff and water that end up in the
-                                            ocean.
+                                           In simple terms, a will is a document that expresses what is to happen with a person's property upon their death.
                                         </p>
                                     </div>
                                 </div>
@@ -54,13 +56,12 @@ export default function Service17() {
                                     </div>
                                     <div className="text_box">
                                         <h2>
-                                            <Link href="#">
-                                                Experience Team
+                                            <Link href="/estate-admin/terms">
+                                               Estate
                                             </Link >
                                         </h2>
                                         <p>
-                                            The less water you use, the less runoff and water that end up in the
-                                            ocean.
+                                            The term "estate" is commonly used to refer to all the property (including money) and all the debts of a person upon their death.
                                         </p>
                                     </div>
                                 </div>
@@ -77,12 +78,11 @@ export default function Service17() {
                                     </div>
                                     <div className="text_box">
                                         <h2>
-                                            <Link href="#">
-                                                Smart solutions
+                                            <Link href="/estate-admin/terms">
+                                                Estate Process
                                             </Link >
                                         </h2>
-                                        <p> The less water you use, the less runoff and water that end up in the
-                                            ocean.
+                                        <p> The estate administration process involves a series of actions that must be taken by an administrator or executor/executrix.
                                         </p>
                                     </div>
                                 </div>

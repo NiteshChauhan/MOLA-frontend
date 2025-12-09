@@ -226,7 +226,7 @@ export default function Contact() {
                                     <section className="map-section">
                                         {/*Map Outer*/}
                                         <div className="map-outer">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.6895046810805!2d-122.52642526124438!3d38.00014098339506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085976736097a2f%3A0xbe014d20e6e22654!2sSan%20Rafael%2C%20California%2C%20Hoa%20K%E1%BB%B3!5e0!3m2!1svi!2s!4v1678975266976!5m2!1svi!2s" height={570} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6794916758704!2d-58.164741799999994!3d6.8087855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dafefa1b40f398f%3A0xc73200d6436f4953!2sMinistry%20of%20Home%20Affairs!5e0!3m2!1sen!2sin!4v1762925233786!5m2!1sen!2sin" height={570} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </section>
                                 </div>

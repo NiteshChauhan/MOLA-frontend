@@ -49,12 +49,12 @@ export default function Testimonial12() {
                                         <SwiperSlide>
                                             <div className="testimonial_box clearfix">
                                                 <div className="image">
-                                                    <img src="/assets/images/banner-four-bg.jpg" alt="image" />
+                                                    <img src="/assets/images/default.jpg" alt="image" />
                                                 </div>
                                                 <div className="authour_details">
-                                                    <div className="b_image">
+                                                    {/* <div className="b_image">
                                                         <img src="/assets/images/CLIENT-logo-1.png" alt="image" />
-                                                    </div>
+                                                    </div> */}
                                                     <div className="comment">
                                                         While running an early stage startup everything feels
                                                         hard, that’s why it’s been so nice to have our accounting
@@ -62,7 +62,7 @@ export default function Testimonial12() {
                                                     </div>
                                                     <div className="details clearfix">
                                                         <div className="c_image">
-                                                            <img src="/assets/images/testi-2.png" alt="image" />
+                                                            <img src="/assets/images/default-user.jpg" alt="image" />
                                                         </div>
                                                         <div className="c_content">
                                                             <div className="content_in">
@@ -72,9 +72,9 @@ export default function Testimonial12() {
                                                         </div>
                                                     </div>
                                                     <div className="rating">
-                                                        <ul>
+                                                        {/* <ul>
                                                             <li><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star fill" /></li>
-                                                        </ul>
+                                                        </ul> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,12 +82,12 @@ export default function Testimonial12() {
                                         <SwiperSlide>
                                             <div className="testimonial_box clearfix">
                                                 <div className="image">
-                                                    <img src="/assets/images/banner-four-bg.jpg" alt="image" />
+                                                    <img src="/assets/images/default.jpg" alt="image" />
                                                 </div>
                                                 <div className="authour_details">
-                                                    <div className="b_image">
+                                                    {/* <div className="b_image">
                                                         <img src="/assets/images/CLIENT-logo-1.png" alt="image" />
-                                                    </div>
+                                                    </div> */}
                                                     <div className="comment">
                                                         While running an early stage startup everything feels
                                                         hard, that’s why it’s been so nice to have our accounting
@@ -95,7 +95,7 @@ export default function Testimonial12() {
                                                     </div>
                                                     <div className="details clearfix">
                                                         <div className="c_image">
-                                                            <img src="/assets/images/testi-1.png" alt="image" />
+                                                            <img src="/assets/images/default-user.jpg" alt="image" />
                                                         </div>
                                                         <div className="c_content">
                                                             <div className="content_in">
@@ -105,9 +105,9 @@ export default function Testimonial12() {
                                                         </div>
                                                     </div>
                                                     <div className="rating">
-                                                        <ul>
+                                                        {/* <ul>
                                                             <li><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star empty" /></li>
-                                                        </ul>
+                                                        </ul> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,12 +115,12 @@ export default function Testimonial12() {
                                         <SwiperSlide>
                                             <div className="testimonial_box clearfix">
                                                 <div className="image">
-                                                    <img src="/assets/images/banner-four-bg.jpg" alt="image" />
+                                                    <img src="/assets/images/default.jpg" alt="image" />
                                                 </div>
                                                 <div className="authour_details">
-                                                    <div className="b_image">
+                                                    {/* <div className="b_image">
                                                         <img src="/assets/images/CLIENT-logo-1.png" alt="image" />
-                                                    </div>
+                                                    </div> */}
                                                     <div className="comment">
                                                         While running an early stage startup everything feels
                                                         hard, that’s why it’s been so nice to have our accounting
@@ -128,7 +128,7 @@ export default function Testimonial12() {
                                                     </div>
                                                     <div className="details clearfix">
                                                         <div className="c_image">
-                                                            <img src="/assets/images/testi-2.png" alt="image" />
+                                                            <img src="/assets/images/default-user.jpg" alt="image" />
                                                         </div>
                                                         <div className="c_content">
                                                             <div className="content_in">
@@ -138,9 +138,9 @@ export default function Testimonial12() {
                                                         </div>
                                                     </div>
                                                     <div className="rating">
-                                                        <ul>
+                                                        {/* <ul>
                                                             <li><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star fill" /><span className="fa fa-star empty" /><span className="fa fa-star empty" /></li>
-                                                        </ul>
+                                                        </ul> */}
                                                     </div>
                                                 </div>
                                             </div>

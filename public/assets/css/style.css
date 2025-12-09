@@ -569,7 +569,7 @@ input[type="password"]{
 /* Active state */
 .top_bar .contntent.active .text small {
   color: #fff;
-  background: #078586;   /* Blue pill highlight */
+  background: #0f84ce;   /* Blue pill highlight */
   font-weight: 600;
   border-radius: 20px;
 }
@@ -590,7 +590,9 @@ input[type="password"]{
   /* color: #ffcc00 !important; */
   color: #ffffff !important; /* highlight color */
   font-weight: 600;
-  border-bottom: 2px solid #078586; /* underline effect */
+  /* border-bottom: 2px solid #078586;  */
+  border-bottom: 2px solid #0f84ce; /* underline effect */
+
   padding-bottom: 2px;
 }
 

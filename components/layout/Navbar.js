@@ -51,6 +51,7 @@ export default function Navbar() {
     { href: "/estate-admin/intestate", label: "Intestate Estate" },
     { href: "/estate-admin/partial", label: "Partially Intestate" },
     { href: "/estate-admin/testate", label: "Testate Estates" },
+    { href: "/estate-admin/know-the-law", label: "Know the Law" },
   ];
 
   const column2Links = [
@@ -197,7 +198,8 @@ export default function Navbar() {
 
           {/* Other Pages */}
           <NavLinkItem href="/legislation">Legislation</NavLinkItem>
-          <NavLinkItem href="/blog">Blogs</NavLinkItem>
+          <NavLinkItem href="/media">Media</NavLinkItem>
+          {/* <NavLinkItem href="/blog">Blog</NavLinkItem> */}
           <NavLinkItem href="/services">Services</NavLinkItem>
           <NavLinkItem href="/downloads">Downloads</NavLinkItem>
         </ul>

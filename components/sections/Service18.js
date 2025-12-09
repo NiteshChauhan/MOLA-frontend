@@ -50,11 +50,11 @@ export default function Service18() {
                             <div className="col-lg-6 m-auto">
                                 <div className="title_all_box style_one text-center">
                                     <div className="title_sections">
-                                        <div className="title">Key Areas of Expertise</div>
-                                        <p>
+                                        <div className="title">Know the Law</div>
+                                        {/* <p>
                                             Our power of choice is untrammelled and when nothing prevents
                                             being able to do what we like best every pleasure.
-                                        </p>
+                                        </p> */}
                                     </div>
                                     {/*===============spacing==============*/}
                                     <div className="pd_bottom_20" />
@@ -68,21 +68,21 @@ export default function Service18() {
                                     <Swiper {...swiperOptions} className="owl_nav_none owl_dots_none owl_type_two theme_carousel">
                                         <SwiperSlide className="service_box  type_one clearfix">
                                             <div className="image_box">
-                                                <img src="/assets/images/service/service-image-6.jpg" className="img-fluid" alt="img" />
+                                                <img src="/assets/images/service/IMG-2.jpg" className="img-fluid" alt="img" />
                                                 <div className="overlay" />
                                             </div>
                                             <div className="content_box">
                                                 <div className="icon_box clearfix">
-                                                    <div className="icon_box_inner">
+                                                    {/* <div className="icon_box_inner">
                                                         <i className="icon icon-thumbs-up icon" />
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 <h2 className="entry-title">
-                                                    <Link href="/service-details">Talent Management</Link >
+                                                    <Link href="#">Lorem ipsum</Link >
                                                 </h2>
-                                                <p>Once your company has hired the best employees, the next step.
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, nunc vitae volutpat faucibus, ante enim mollis mauris, ut pharetra felis mauris quis mi.
                                                 </p>
-                                                <Link href="/service-details" className="read_more type_one">
+                                                <Link href="/estate-admin/know-the-law" className="read_more type_one">
                                                     <span className="icon-arrow-right" />
                                                     Read More
                                                 </Link >
@@ -90,22 +90,21 @@ export default function Service18() {
                                         </SwiperSlide>
                                         <SwiperSlide className="service_box  type_one clearfix">
                                             <div className="image_box">
-                                                <img src="/assets/images/service/service-image-5.jpg" className="img-fluid" alt="img" />
+                                                <img src="/assets/images/service/IMG-3.jpg" className="img-fluid" alt="img" />
                                                 <div className="overlay" />
                                             </div>
                                             <div className="content_box">
                                                 <div className="icon_box clearfix">
-                                                    <div className="icon_box_inner">
+                                                    {/* <div className="icon_box_inner">
                                                         <i className="icon icon-thumbs-up icon" />
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 <h2 className="entry-title">
-                                                    <Link href="/service-details">Health Care Benefits
+                                                    <Link href="#">Lorem ipsum Benefits
                                                     </Link >
                                                 </h2>
-                                                <p>Workplace conflict can become a costly and time-consuming process
-                                                    .</p>
-                                                <Link href="/service-details" className="read_more type_one">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, nunc vitae volutpat faucibus, ante enim mollis mauris, ut pharetra felis mauris quis mi.</p>
+                                                <Link href="/estate-admin/know-the-law" className="read_more type_one">
                                                     <span className="icon-arrow-right" />
                                                     Read More
                                                 </Link >
@@ -113,20 +112,18 @@ export default function Service18() {
                                         </SwiperSlide>
                                         <SwiperSlide className="service_box  type_one clearfix">
                                             <div className="image_box">
-                                                <img src="/assets/images/service/service-image-4.jpg" className="img-fluid" alt="img" />
+                                                <img src="/assets/images/service/IMG-4.jpg" className="img-fluid" alt="img" />
                                                 <div className="overlay" />
                                             </div>
                                             <div className="content_box">
                                                 <div className="icon_box clearfix">
-                                                    <div className="icon_box_inner">
+                                                    {/* <div className="icon_box_inner">
                                                         <i className="icon icon-thumbs-up icon" />
-                                                    </div>
+                                                    </div> */}
                                                 </div>
-                                                <h2 className="entry-title"><Link href="/service-details">Risk
-                                                    Management</Link ></h2>
-                                                <p>Mitigate workplace issues before they escalate ,Shared Time
-                                                    Human.</p>
-                                                <Link href="/service-details" className="read_more type_one">
+                                                <h2 className="entry-title"><Link href="#">Lorem ipsum</Link ></h2>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, nunc vitae volutpat faucibus, ante enim mollis mauris, ut pharetra felis mauris quis mi.</p>
+                                                <Link href="/estate-admin/know-the-law" className="read_more type_one">
                                                     <span className="icon-arrow-right" />
                                                     Read More
                                                 </Link >

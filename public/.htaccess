@@ -1,12 +1,35 @@
-# Redirect all routes to index.html (for static Next.js export)
+# .htaccess for Next.js exported site that supports:
+# 1) existing files/directories,
+# 2) nested .html files like /estate-admin/apply -> /estate-admin/apply.html,
+# 3) flat HTML files like /about-us -> /about-us.html,
+# 4) fallback to index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+
+  # 1) If the request matches an existing file or directory, serve it directly.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 2) If there's a file matching REQUEST_URI + .html (e.g. /estate-admin/apply -> /estate-admin/apply.html), serve it.
+  # NOTE: %{REQUEST_URI} includes the leading slash (e.g. /estate-admin/apply)
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^ %{REQUEST_URI}.html [L]
+
+  # 3) If a flattened nested file exists using dashes (e.g. estate-admin-apply.html), serve it.
+  # This handles exports that produced files like estate-admin-apply.html
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/(.+?)/?$ $1-$2.html [L]
+
+  # 4) Single segment pages: try /pagename.html (e.g. /about-us -> /about-us.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^/]+)/?$ $1.html [L]
+
+  # 5) Final fallback: serve root index.html (SPA fallback / 404)
+  RewriteRule ^ index.html [L]
 </IfModule>
 
-# Optional: handle errors gracefully
+# Optional: show index.html on 404 instead of server 404 page
 ErrorDocument 404 /index.html

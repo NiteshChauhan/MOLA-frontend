@@ -90,7 +90,7 @@ export default function Services() {
                     <h4 style={{ color: "#007bff", fontSize: "1.2rem", marginBottom: "5px" }}>
                       {srv.title}
                     </h4>
-                    <h6 style={{ color: "#28a745", marginBottom: "10px" }}>{srv.subtitle}</h6>
+                    <h6 style={{ color: "#007bff", marginBottom: "10px" }}>{srv.subtitle}</h6>
                     <p style={{ color: "#555", fontSize: "0.95rem" }}>{srv.description}</p>
                   </div>
                 ))}

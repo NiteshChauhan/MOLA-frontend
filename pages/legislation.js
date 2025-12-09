@@ -81,7 +81,7 @@ export default function LegislationDocs() {
                     <Link href={act.pdf} target="_blank">
                       <span
                         style={{
-                          color: "#28a745",
+                          color: "#007bff",
                           fontWeight: "600",
                           textDecoration: "none",
                           cursor: "pointer",

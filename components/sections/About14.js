@@ -7,7 +7,7 @@ export default function About14() {
     }
     return (
         <>
-            <section className="about-section  position-relative">
+            <section className="about-section  position-relative" >
                 <div className="default-container">
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">

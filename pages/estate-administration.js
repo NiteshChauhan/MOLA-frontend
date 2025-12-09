@@ -43,8 +43,8 @@ export default function EstateAdminIndex() {
                             <div className="col-xl-9 col-lg-12 mb-5 mb-lg-5 mb-xl-0">
                                 <div className="title_all_box style_one dark_color">
                                     <div className="title_sections left">
-                                        <div className="before_title">The Process Of</div>
-                                        <h2>Estate Administration</h2>
+                                        <div className="before_title">The Process Of Estate Administration</div>
+                                        {/* <h2>Estate Administration</h2> */}
                                     </div>
                                 </div>
                                 
@@ -103,7 +103,7 @@ export default function EstateAdminIndex() {
                                             <a href="/estate-admin/initiate" className="theme-btn two" style={{ 
                                                 display: 'inline-block', 
                                                 padding: '10px 20px', 
-                                                backgroundColor: '#28a745', 
+                                                backgroundColor: '#007bff', 
                                                 color: 'white', 
                                                 borderRadius: '5px', 
                                                 textDecoration: 'none', 

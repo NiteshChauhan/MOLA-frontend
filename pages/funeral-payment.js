@@ -15,15 +15,15 @@ export default function ProjectDetails() {
                                 <div className="col-xl-9 col-lg-12 mb-5 mb-lg-5 mb-xl-0">
                                     <div className="title_all_box style_one dark_color">
                                         <div className="title_sections left">
-                                            <div className="before_title">What do</div>
-                                            <h2>I do after the death of a loved one?</h2>
+                                            <div className="before_title">What do I do after the death of a loved one?</div>
+                                            {/* <h2>I do after the death of a loved one?</h2> */}
                                         </div>
                                     </div>
                                    
                                     <div className="pd_bottom_10" />
                                    
                                     <div className="description_box">
-                                        <p>You may approach the Office of the Public Trustee to access the accounts of a deceased person held with a local commercial bank to help cover funeral expenses less than $750,000. In order to utilize this service, you must present the following documents.</p>
+                                        <p>You may approach the Office of the Public Trustee to access the accounts of a deceased person held with a local commercial bank to help cover funeral expenses less than G$750,000. In order to utilize this service, you must present the following documents.</p>
                                     </div>
                                    
                                     <div className="pd_bottom_15" />
@@ -31,35 +31,35 @@ export default function ProjectDetails() {
                                     <div className="description_box">
                                         <ul>
                                             <li>
-                                                Death Registration / Death Registration of the deceased 
+                                                Death Registration / Death Registration of the deceased.
                                             </li>
                                             <li>	
                                                 Itemized Quotation from a funeral home.
                                             </li>
                                             <li>	
-                                                Bank Statement or Deposit slip showing bank account number
+                                                Bank Statement or Deposit slip showing bank account number.
                                              </li>
                                             <li>
-                                                	Birth Certificate of deceased 
+                                                	Birth Certificate of deceased. 
                                             </li>
                                             <li>
                                                 	Identification for the deceased and the applicant. 
                                             </li>
 
                                         </ul>
-                                        <p>Denounce with righteous indignation and dislike men who are so beguiled and demoralized.</p>
+                                        {/* <p>Denounce with righteous indignation and dislike men who are so beguiled and demoralized.</p> */}
                                     </div>
                                    
                                     <div className="pd_bottom_15" />
                                    
                                     <div className="description_box">
-                                        <p>If you are unable to cover the cost of the funeral for a loved one and they were an eligible contributor to the National Insurance Scheme, you may be able to access a sum of money from the NIS to help with the funeral expenses.</p>
+                                        <p>If you are unable to cover the cost of the funeral for a loved one and they were an eligible contributor to the National Insurance Scheme (NIS), you may be able to access a sum of money from NIS to help with the funeral expenses.</p>
                                     </div>
                                    
                                     <div className="pd_bottom_15" />
                                    
                                     <div className="description_box">
-                                        <p>Individuals can also access financial assistance through the National Insurance Scheme (NIS)'s Funeral Benefits of up to $25,000 for insured persons, or through private funeral insurance plans from private insurance companies.</p>
+                                        <p> Individuals can also access financial assistance through the (NIS)'s Funeral Benefits of up to twenty-five thousand Guyana dollars (G$25,000) for insured persons, or through private funeral insurance plans from private insurance companies.</p>
                                     </div>
                                    
                                     <div className="pd_bottom_25" />

@@ -41,13 +41,13 @@ export default function MinorAndEstatesPage() {
 
                                 {/* SECTION: MINOR'S INVOLVEMENT IN ESTATES */}
                                 <div className="involvement-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #28a745', paddingBottom: '10px', color: '#28a745', marginBottom: '20px' }}>Receiving Assets</h3>
+                                    <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff', marginBottom: '20px' }}>Receiving Assets</h3>
                                     
                                     <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>
                                         <li style={{ marginBottom: '15px', padding: '10px', borderLeft: '3px solid #dc3545', backgroundColor: '#fdf3f5' }}>
                                             <strong style={{ color: '#dc3545' }}>Restriction:</strong> If a minor is involved in an estate, they cannot sign as receiving assets of any form (movable and immovable property).
                                         </li>
-                                        <li style={{ marginBottom: '15px', padding: '10px', borderLeft: '3px solid #28a745', backgroundColor: '#f0f9f0' }}>
+                                        <li style={{ marginBottom: '15px', padding: '10px', borderLeft: '3px solid #007bff', backgroundColor: '#f0f9f0' }}>
                                             <strong style={{ color: '#155724' }}>Solution:</strong> If a minor has to receive a share of an estate (either from a will or under intestacy rules), the legal guardian of that minor may sign on the behalf of the minor to receive and hold assets on the behalf of the minor until their 18th birthday.
                                         </li>
                                     </ul>
