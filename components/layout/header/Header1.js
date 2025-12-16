@@ -71,7 +71,7 @@ export default function Header1({ handleSearch, handleContactPopup, handleMobile
                                                 <Link href="#" >
                                                     <small><FontAwesomeIcon icon={faYoutube} /></small>
                                                 </Link>
-                                                <Link href="/" >
+                                                <Link href="#" >
                                                     <small>Log In</small>
                                                 </Link>
                                             </div>

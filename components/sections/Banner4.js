@@ -3,7 +3,7 @@ export default function Banner4() {
     return (
         <>
             <div className="banner_section_hm_16 pd_left_100 pd_right_100 md_pd_left_15 md_pd_right_15">
-                <div className="inner_section bg_op_1" style={{ background: 'url(/assets/images/sliders/banner-17-bg.jpg)' }}>
+                <div className="inner_section bg_op_1" style={{ background: 'url(/assets/images/sliders/public-trustee-banner-01-home.jpg)' }}>
                     <div className="default-container">
                         <div className="row gutter_30px">
                             <div className="col-lg-12 pd_zero">
@@ -14,8 +14,8 @@ export default function Banner4() {
                                                 <div className="col-lg-8">
                                                     <div className="left_content">
                                                         <div className="title">
-                                                            <h6>Office Of Public Trustee,</h6>
-                                                            <h1>Co-operative Republic of Guyana</h1>
+                                                            {/* <h6>Office Of Public Trustee,</h6>
+                                                            <h1>Co-operative Republic of Guyana</h1> */}
 
                                                         </div>
                                                         <div className="quotes">

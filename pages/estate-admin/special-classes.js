@@ -34,8 +34,13 @@ export default function SpecialClassesPage() {
                                 <div className="pd_bottom_25" />
                                 
                                 {/* COMMON LAW UNION SECTION */}
+                                <div className="title_all_box style_one dark_color">
+                                    <div className="title_sections left">
+                                        <div className="before_title">Common Law Union Spouses</div>
+                                    </div>
+                                </div>
                                 <div className="section-block" style={{ marginBottom: '40px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff', marginBottom: '15px' }}>Common Law Union Spouses</h3>
+                                    {/* <h3 style={{ borderBottom: '2px solid #007bff', paddingBottom: '10px', color: '#007bff', marginBottom: '15px' }}>Common Law Union Spouses</h3> */}
                                     
                                     <p style={{ color: '#555', marginBottom: '15px' }}>
                                         Despite not being a legally recognizable union under the Matrimonial Causes Act (as amended by Act no. 13 of 2024), the law nonetheless makes provision for persons living in a common law union to the extent of intestate succession. The law allows a spouse of a common law union the same rights as a married person where one of the spouses dies intestate.
@@ -62,7 +67,7 @@ export default function SpecialClassesPage() {
                                         With regard to a Will or any testamentary instrument, any reference to a child therein shall include a child born out of wedlock unless there is a contrary intention.
                                     </p>
 
-                                    <h4 style={{ color: '#dc3545', marginTop: '20px' }}>Father of a child born out of wedlock</h4>
+                                    <h4 style={{color: '#007bff', marginTop: '20px' }}>Father of a child born out of wedlock</h4>
                                     <p style={{ color: '#555', marginBottom: '10px' }}>
                                         A man shall not, as father of a child born out of wedlock and dying intestate, be entitled to take any interest in the estate of the child unless, before the death of the child—
                                     </p>
@@ -74,7 +79,7 @@ export default function SpecialClassesPage() {
                                 
                                 {/* ADOPTED CHILD SECTION */}
                                 <div className="section-block" style={{ marginBottom: '40px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h3 style={{ borderBottom: '2px solid #ffc107', paddingBottom: '10px', color: '#856404', marginBottom: '15px' }}>Adopted Child</h3>
+                                    <h3 style={{ borderBottom: '2px solid #ffc107', paddingBottom: '10px', color: '#007bff', marginBottom: '15px' }}>Adopted Child</h3>
                                     
                                     <p style={{ color: '#555' }}>
                                         Where, after an Adoption Order is made, the adopter, the adopted child or any other person dies intestate (without a Will), the adopted child shall be treated as if he were the biological child of the adopter.

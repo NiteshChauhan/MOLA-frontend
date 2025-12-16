@@ -1,0 +1,227 @@
+/* ================================
+   AUTH PAGE – GLOBAL STYLES
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #eef2f7, #dbeafe);
+}
+
+/* ================================
+   WRAPPER
+================================ */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================================
+   CARD
+================================ */
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ================================
+   LOGO
+================================ */
+
+.auth-logo {
+  display: block;
+  max-width: 160px;
+  margin: 0 auto 12px;
+}
+
+/* ================================
+   TITLE
+================================ */
+
+.auth-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+.auth-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* ================================
+   TABS
+================================ */
+
+.auth-tabs {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.25s ease;
+}
+
+.auth-tabs button.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card input {
+  height: 44px;
+  padding: 0 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* ================================
+   BUTTON
+================================ */
+
+.auth-card button {
+  height: 46px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.auth-card button:hover {
+  background: #1d4ed8;
+}
+
+.auth-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ================================
+   ERROR MESSAGE
+================================ */
+
+.auth-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* ================================
+   ICON FIX (IMPORTANT)
+================================ */
+
+/* Prevent HUGE SVG icons */
+/* svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+} */
+
+/* ================================
+   ANIMATION
+================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .auth-card {
+    margin: 0 12px;
+    padding: 24px 20px;
+  }
+}
+
+/* ================================
+   FORCE CENTER AUTH PAGE
+================================ */
+
+.auth-page {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  background: linear-gradient(135deg, #eef2f7, #dbeafe);
+  z-index: 9999;
+}
+
+.auth-wrapper {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Prevent layout containers from shifting auth */
+.auth-page *,
+.auth-wrapper * {
+  box-sizing: border-box;
+}

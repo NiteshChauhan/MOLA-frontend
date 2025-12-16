@@ -14,6 +14,8 @@ import "../public/assets/css/scss/elements/theme-css.css"
 import "../public/assets/css/style.css"
 import "../public/assets/css/woocommerce-layout.css"
 import "../public/assets/css/woocommerce.css"
+import '../public/assets/css/auth.css';
+import "../public/assets/css/dashboard.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 

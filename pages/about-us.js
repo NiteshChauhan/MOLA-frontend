@@ -5,10 +5,13 @@ import { useState } from "react"
 import { Autoplay, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import Head from 'next/head'
+import ModalVideo from "@/components/elements/ModalVideo";
+
 
 export default function AboutUs() {
 
     const [activeIndex, setActiveIndex] = useState(1);
+    const [open, setOpen] = useState(false);
     const handleOnClick = (index) => {
         setActiveIndex(index);
     };
@@ -104,6 +107,20 @@ export default function AboutUs() {
               </li>
             </ul>
           </div>
+          <div style={{ marginTop: "15px" }}>
+            <Link href="/assets/uploads/PT_MOLA_BROCHURE.pdf" target="_blank">
+              <span
+                style={{
+                  color: "#007bff",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                }}
+              >
+                📥 Office of The Public Trustee PDF
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -111,26 +128,37 @@ export default function AboutUs() {
       <div className="col-xl-6 col-lg-12">
         <div className="image_boxes style_two">
           <img src="/assets/images/shape-1.png" className="background_image" alt="shape" />
-          <div className="image one">
+          {/* <div className="image one">
             <img src="/assets/images/about/about-13.jpg" className="img-fluid" alt="about" />
-          </div>
-          {/* <div className="image two">
-            <img src="/assets/images/about/about-7.png" className="img-fluid" alt="about" />
-            <div className="video_box">
-              <VideoBox />
-            </div>
           </div> */}
+          <div className="image one" onClick={() => setOpen(true)} style={{cursor:"pointer"}}>
+            <img  src="/assets/uploads/thumbnail_1.png" className="img-fluid" alt="about" />
+            <div className="video_box">
+              
+              {/* <VideoBox /> */}
+              {/* <button onClick={() => setOpen(true)}>
+                ▶ 
+              </button> */}
+
+              <ModalVideo
+                isOpen={open}
+                onClose={() => setOpen(false)}
+                videoSrc="/assets/uploads/office_of_the_public_trustee.mp4"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div className="pd_bottom_70" />
+  {/* <div className="pd_bottom_20" /> */}
+  
 </section>
 
 {/*-service-*/}
                 <section className="service-icon-section bg_light_1">
                     {/*===============spacing==============*/}
-                    <div className="pd_top_90" />
+                    <div className="pd_top_20" />
                     {/*===============spacing==============*/}
                     <div className="container">
                         <div className="row">
@@ -138,7 +166,7 @@ export default function AboutUs() {
                                 <div className="title_all_box style_one text-center dark_color">
                                     <div className="title_sections">
                                         <div className="before_title">MISSION AND VALUES</div>
-                                        <h2 className="title">Stand Out From The Rest</h2>
+                                        {/* <h2 className="title">Stand Out From The Rest</h2> */}
                                     </div>
                                     {/*===============spacing==============*/}
                                     <div className="pd_bottom_20" />
@@ -147,7 +175,7 @@ export default function AboutUs() {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-xl-6 col-lg-9 col-md-18 col-sm-18 col-xs-18">
+                            <div className="col-xl-12 col-lg-18 col-md-36 col-sm-36 col-xs-36">
                                 {/* <div className="simple_image_boxes parallax_cover height_264px">
                                     <img src="/assets/images/default.jpg" className="simp_img cover-parallax" alt="image" />
                                 </div> */}
@@ -167,7 +195,7 @@ export default function AboutUs() {
                                     <div className="pd_bottom_110" />
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-9 col-md-18 col-sm-18 col-xs-18 mt-4 mt-lg-0 mt-xl-0">
+                            {/* <div className="col-xl-6 col-lg-9 col-md-18 col-sm-18 col-xs-18 mt-4 mt-lg-0 mt-xl-0">
                                 <div className="icon_box_all style_three">
                                     <div className="icon_content ">
                                         <div className="icon">
@@ -176,14 +204,14 @@ export default function AboutUs() {
                                         <div className="txt_content">
                                             <h3><Link href="#" >Our Values</Link></h3>
                                             <p>In seeking to achieve our Mission Statement, the Office of the Public Trustee uphold high legal and professional standards. Our key values are:</p>
-                                            {/* <ul>
+                                            <ul>
                                                 <li>Integrity</li>
                                                 <li>Professionalism </li>
                                                 <li>Confidentiality</li>
                                                 <li>Transparency</li>
                                                 <li>Efficiency and Diligence</li>
                                                 <li>Service Excellence</li>
-                                            </ul> */}
+                                            </ul>
                                             <div className="btn_left">
                                                 <button onClick={() => {
                                                     window.scrollTo({top: document.querySelector("#valuesTabs").offsetTop, behavior: 'smooth'});
@@ -192,7 +220,7 @@ export default function AboutUs() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                             
                         </div>
                     </div>
@@ -212,6 +240,7 @@ export default function AboutUs() {
         <div className="title-box">
           <h2>Our Values</h2>
           <p>We are committed to upholding the highest standards of integrity, professionalism, and excellence in all our services.</p>
+          <p>In seeking to achieve our Mission Statement, the Office of the Public Trustee uphold high legal and professional standards. Our key values are:</p>
         </div>
          {/*===============spacing==============*/}
         <div className="pd_bottom_30" />

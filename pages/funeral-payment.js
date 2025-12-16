@@ -12,7 +12,7 @@ export default function ProjectDetails() {
                         {/*===============spacing==============*/}
                         <div className="container" >
                             <div className="row">
-                                <div className="col-xl-9 col-lg-12 mb-5 mb-lg-5 mb-xl-0">
+                                <div className="col-xl-6 col-lg-6 mb-5 mb-lg-5 mb-xl-0">
                                     <div className="title_all_box style_one dark_color">
                                         <div className="title_sections left">
                                             <div className="before_title">What do I do after the death of a loved one?</div>
@@ -65,6 +65,9 @@ export default function ProjectDetails() {
                                     <div className="pd_bottom_25" />
                                     
                                 </div>
+                                <div className="col-xl-6 col-lg-12 text-right">
+                                    <img src="/assets/images/service/IMG-18.jpg" alt="What do I do after the death of a loved one?" className="img-fluid" />
+                                </div>
                                 {/* <div className="col-xl-3 col-lg-12">
                                     <div className="project_information">
                                         <h2>Project Information</h2>
@@ -110,11 +113,11 @@ export default function ProjectDetails() {
                         {/*===============spacing==============*/}
                     </section>
                     {/*-newsteller-*/}
-                    <section className="newsteller style_one bg_dark_1">
-                        {/*===============spacing==============*/}
+                    {/* <section className="newsteller style_one bg_dark_1">
+                        
                         <div className="pd_top_40" />
-                        {/*===============spacing==============*/}
-                        {/* <div className="auto-container">
+                        
+                        <div className="auto-container">
                             <div className="row align-items-center">
                                 <div className="col-lg-6 col-md-12">
                                     <div className="content">
@@ -135,11 +138,11 @@ export default function ProjectDetails() {
                                     </div>
                                 </div>
                             </div>
-                        </div> */}
-                        {/*===============spacing==============*/}
+                        </div>
+                        
                         <div className="pd_bottom_40" />
-                        {/*===============spacing==============*/}
-                    </section>
+                        
+                    </section> */}
                 </div>
 
             </Layout>

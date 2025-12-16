@@ -39,20 +39,22 @@ export default function SmallEstatesPage() {
                                         No, a grant is not required if the assets of the deceased are transferable without one.
                                     </p>
                                 </div>
-
+                                 <div className="pd_bottom_25" />   
                                 {/* SECTION: MONETARY EXEMPTION */}
-                                <div className="exemption-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                                    <h4 style={{ borderBottom: '2px solid #ffc107', paddingBottom: '10px', color: '#856404', marginBottom: '15px' }}>Assets Not Exceeding $750,000.00</h4>
                                     
+                                <h3 style={{ margin: '0 0 15px 0', color: '#007bff', fontSize: '1.4rem' }}>Assets Not Exceeding G$750,000.00</h3>
+                                <div className="exemption-section" style={{ marginTop: '30px', padding: '20px', backgroundColor: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                                    {/* <h4 style={{ borderBottom: '2px solid #ffc107', paddingBottom: '10px', color: '#856404', marginBottom: '15px' }}>Assets Not Exceeding G$750,000.00</h4>
+                                     */}
                                     <p style={{ color: '#555', marginBottom: '15px' }}>
-                                        Moreover, where the assets of the deceased are money in the bank which does not exceed seven hundred and fifty thousand dollars ($\$750,000.00$), Probate or Letters of Administration is also not required. In such a case, the executor, surviving spouse or heir to the estate may apply in writing to the bank for a disbursement of such sum of money.
+                                        Moreover, where the assets of the deceased are money in the bank which does not exceed seven hundred and fifty thousand dollars ($\G$750,000.00$), Probate or Letters of Administration is also not required. In such a case, the executor, surviving spouse or heir to the estate may apply in writing to the bank for a disbursement of such sum of money.
                                     </p>
                                 </div>
                                 
                                 {/* SECTION: PUBLIC TRUSTEE POWER */}
                                 <div className="pt-power-section" style={{ marginTop: '30px', padding: '15px', borderLeft: '5px solid #007bff', backgroundColor: '#f0f9f0', borderRadius: '5px' }}>
                                     <p style={{ margin: 0, color: '#155724', fontWeight: 'bold' }}>
-                                        The Public Trustee is also now empowered to administer an estate of a deceased person without a Grant of Letters of Administration where the value of the estate does not exceed seven hundred and fifty thousand dollars ($\$750,000.00$).
+                                        The Public Trustee is also now empowered to administer an estate of a deceased person without a Grant of Letters of Administration where the value of the estate does not exceed seven hundred and fifty thousand dollars ($\G$750,000.00$).
                                     </p>
                                 </div>
                                 

@@ -1092,6 +1092,7 @@
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
+  aspect-ratio: 2/1;
 }
 
 .bg_op_2 {
@@ -1903,7 +1904,7 @@ body.error404 .left-sidebar .content-area {
   right: 0;
   left: 0;
   bottom: 0;
-  background: var(--primary-color-two);
+  background: #282f3b82; /* var(--primary-color-two); */
   opacity: 0.85;
   z-index: 1;
 }
