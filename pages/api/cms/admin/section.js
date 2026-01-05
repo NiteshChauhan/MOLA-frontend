@@ -1,32 +1,49 @@
-// import db from "../../../../lib/db";
-// import verifyToken from "../../../../middlewares/verifyToken";
+import CmsPageSection from "@/models/CmsPageSection";
 
-// export default verifyToken(async (req, res) => {
-//   if (req.method === "POST") {
-//     const { page_uid, title, content, order } = req.body;
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-//     await db.query(
-//       `INSERT INTO cms_sections 
-//        (section_pageuid, section_title, section_content, section_order)
-//        VALUES (?, ?, ?, ?)`,
-//       [page_uid, title, content, order]
-//     );
+  try {
+    const {
+      page_uid,
+      section_title,
+      section_content,
+      section_order,
+      section_key,
+    } = req.body;
 
-//     return res.json({ success: true });
-//   }
+    /* ✅ VALIDATION */
+    if (
+      !page_uid ||
+      !section_title ||
+      !section_content ||
+      !section_order
+    ) {
+      return res.status(400).json({
+        error: "Missing required fields",
+      });
+    }
 
-//   if (req.method === "PUT") {
-//     const { section_uid, title, content } = req.body;
+    /* ✅ CREATE SECTION */
+    const section = await CmsPageSection.create({
+      page_uid,
+      section_title,
+      section_content,
+      section_order,
+      section_key: section_key,
+      section_type: section_key,
+    });
 
-//     await db.query(
-//       `UPDATE cms_sections 
-//        SET section_title=?, section_content=?
-//        WHERE section_uid=?`,
-//       [title, content, section_uid]
-//     );
-
-//     return res.json({ success: true });
-//   }
-
-//   res.status(405).end();
-// });
+    return res.status(200).json({
+      success: true,
+      section,
+    });
+  } catch (err) {
+    console.error("CMS SECTION CREATE ERROR:", err);
+    return res.status(500).json({
+      error: "Internal server error",
+    });
+  }
+}

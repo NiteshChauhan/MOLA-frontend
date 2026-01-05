@@ -1,75 +1,177 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import AdminLayout from "@/components/admin/AdminLayout";
+import StatusBadge from "@/components/admin/ui/StatusBadge";
+import withAdminAuth from "@/components/auth/withAdminAuth";
 
-export default function CmsPages() {
+function CmsPages() {
   const [pages, setPages] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchPages();
+    fetch("/api/cms/admin/pages")
+      .then((res) => res.json())
+      .then((data) => setPages(data.pages || []));
   }, []);
-
-  const fetchPages = async () => {
-    try {
-      const token = localStorage.getItem("auth_token");
-
-      const res = await fetch("/api/cms/admin/pages", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = await res.json();
-
-      // ✅ Always guard against bad API response
-      setPages(Array.isArray(data.pages) ? data.pages : []);
-    } catch (err) {
-      console.error("Failed to fetch pages:", err);
-      setPages([]);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <AdminLayout title="CMS Pages">
-      <div className="page-header">
-        <h1>CMS Pages</h1>
+      {/* ===== PAGE HEADER ===== */}
+      <div style={{ marginBottom: 40 }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            gap: 20,
+          }}
+        >
+          <div>
+            <h1
+              style={{
+                fontSize: 40,
+                fontWeight: 800,
+                color: "#0f172a",
+                marginBottom: 6,
+              }}
+            >
+              CMS Pages
+            </h1>
+            <p style={{ fontSize: 16, color: "#64748b" }}>
+              Create, edit, and manage your website pages.
+            </p>
+          </div>
 
-        <a href="/admin/cms/create" className="btn-primary">
-          + Add Page
-        </a>
+          <Link
+            href="/admin/cms/create"
+            style={{
+              background: "#2563eb",
+              color: "#fff",
+              padding: "10px 18px",
+              borderRadius: 10,
+              fontWeight: 600,
+              fontSize: 14,
+              textDecoration: "none",
+              boxShadow: "0 6px 16px rgba(37,99,235,.25)",
+            }}
+          >
+            + Add Page
+          </Link>
+        </div>
       </div>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <table className="table">
-          <thead>
+      {/* ===== TABLE CARD ===== */}
+      <div
+        style={{
+          background: "#fff",
+          borderRadius: 14,
+          border: "1px solid #e5e7eb",
+          boxShadow: "0 10px 30px rgba(0,0,0,.06)",
+          overflow: "hidden",
+        }}
+      >
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead style={{ background: "#f9fafb" }}>
             <tr>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Status</th>
+              <th style={thStyle}>Title</th>
+              <th style={thStyle}>Slug</th>
+              <th style={thStyle}>Status</th>
+              <th style={{ ...thStyle, textAlign: "right" }}>Actions</th>
             </tr>
           </thead>
 
           <tbody>
-            {pages.length === 0 ? (
+            {pages.length === 0 && (
               <tr>
-                <td colSpan="3">No pages found</td>
+                <td
+                  colSpan="4"
+                  style={{
+                    padding: 30,
+                    textAlign: "center",
+                    color: "#64748b",
+                    fontSize: 14,
+                  }}
+                >
+                  No CMS pages found.
+                </td>
               </tr>
-            ) : (
-              pages.map((p) => (
-                <tr key={p.page_uid}>
-                  <td>{p.page_title}</td>
-                  <td>{p.page_slug}</td>
-                  <td>{p.page_status}</td>
-                </tr>
-              ))
             )}
+
+            {pages.map((page) => (
+              <tr
+                key={page.idpage}
+                style={{
+                  borderTop: "1px solid #e5e7eb",
+                }}
+              >
+                <td style={tdStyle}>
+                  <div style={{ fontWeight: 600, color: "#0f172a" }}>
+                    {page.page_title}
+                  </div>
+                </td>
+
+                <td style={{ ...tdStyle, color: "#64748b" }}>
+                  /{page.page_slug}
+                </td>
+
+                <td style={tdStyle}>
+                  <StatusBadge status={page.page_status} />
+                </td>
+
+                <td style={{ ...tdStyle, textAlign: "right" }}>
+                  <div style={{ display: "inline-flex", gap: 8 }}>
+                    <Link
+                      href={`/admin/cms/edit/${page.page_uid}`}
+                      style={actionBtn}
+                    >
+                      Edit
+                    </Link>
+
+                    <Link
+                      href={`/admin/cms/sections/${page.page_uid}`}
+                      style={{
+                        ...actionBtn,
+                        background: "#eff6ff",
+                        color: "#2563eb",
+                        borderColor: "#bfdbfe",
+                      }}
+                    >
+                      Sections
+                    </Link>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      )}
+      </div>
     </AdminLayout>
   );
 }
+
+export default withAdminAuth(CmsPages);
+/* ===== INLINE STYLES ===== */
+
+const thStyle = {
+  padding: "14px 16px",
+  fontSize: 12,
+  fontWeight: 700,
+  color: "#475569",
+  textTransform: "uppercase",
+  textAlign: "left",
+};
+
+const tdStyle = {
+  padding: "16px",
+  fontSize: 14,
+};
+
+const actionBtn = {
+  padding: "6px 12px",
+  borderRadius: 8,
+  border: "1px solid #e5e7eb",
+  fontSize: 13,
+  fontWeight: 600,
+  textDecoration: "none",
+  color: "#334155",
+  background: "#fff",
+};

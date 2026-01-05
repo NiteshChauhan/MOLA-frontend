@@ -1,17 +1,37 @@
-// import db from "../../../../lib/db";
-// import verifyToken from "../../../../middlewares/verifyToken";
+import CmsPageSection from "@/models/CmsPageSection";
 
-// export default verifyToken(async (req, res) => {
-//   if (req.method !== "POST") return res.status(405).end();
+export default async function handler(req, res) {
+  try {
+    if (req.method !== "POST") {
+      return res.status(405).json({ error: "Method not allowed" });
+    }
 
-//   const { sections } = req.body;
+    const { sections } = req.body;
 
-//   for (let i = 0; i < sections.length; i++) {
-//     await db.query(
-//       `UPDATE cms_sections SET section_order=? WHERE section_uid=?`,
-//       [i + 1, sections[i].section_uid]
-//     );
-//   }
+    if (!Array.isArray(sections)) {
+      return res.status(400).json({ error: "Invalid sections data" });
+    }
 
-//   res.json({ success: true });
-// });
+    // 🔁 Update order one by one
+    const updates = sections.map((section) =>
+      CmsPageSection.update(
+        { section_order: section.section_order },
+        { where: { idsection: section.idsection } }
+      )
+    );
+
+    await Promise.all(updates);
+
+    return res.status(200).json({
+      success: true,
+      message: "Section order updated",
+    });
+
+  } catch (error) {
+    console.error("Section reorder error:", error);
+    return res.status(500).json({
+      error: "Failed to update section order",
+      details: error.message,
+    });
+  }
+}

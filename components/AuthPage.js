@@ -47,7 +47,7 @@ const LoginForm = memo(({ data, onChange, onSubmit, loading }) => (
       required
     />
     <button disabled={loading}>
-      {loading ? <LoaderIcon /> : <LogInIcon />}
+      {/* {loading ? <LoaderIcon /> :<LoaderIcon />} */}
       Login
     </button>
   </form>
@@ -196,7 +196,7 @@ export default function AuthPage() {
           />
 
           <div className="auth-tabs">
-            <button
+            {/* <button
               className={tab === "login" ? "active" : ""}
               onClick={() => setTab("login")}
             >
@@ -207,7 +207,7 @@ export default function AuthPage() {
               onClick={() => setTab("register")}
             >
               Register
-            </button>
+            </button> */}
           </div>
 
           {message && (
@@ -236,3 +236,5 @@ export default function AuthPage() {
     </div>
   );
 }
+
+const style = 'height:50%';

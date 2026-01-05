@@ -68,81 +68,12 @@ export default function ProjectDetails() {
                                 <div className="col-xl-6 col-lg-12 text-right">
                                     <img src="/assets/images/service/IMG-18.jpg" alt="What do I do after the death of a loved one?" className="img-fluid" />
                                 </div>
-                                {/* <div className="col-xl-3 col-lg-12">
-                                    <div className="project_information">
-                                        <h2>Project Information</h2>
-                                        <div className="project_information_bo">
-                                            <div className="repeat_informtion">
-                                                <h6>Client: </h6>
-                                                <p>The Sixmothers Group</p>
-                                            </div>
-                                            <div className="repeat_informtion">
-                                                <h6>Location: </h6>
-                                                <p>Philadelphia, United States</p>
-                                            </div>
-                                            <div className="repeat_informtion">
-                                                <h6>Date: </h6>
-                                                <p> February 14, {new Date().getFullYear()}</p>
-                                            </div>
-                                            <div className="repeat_informtion">
-                                                <h6>Website: </h6>
-                                                <p>www.clientwebsite.com</p>
-                                            </div>
-                                            <div className="social_medias">
-                                                <Link href="#">
-                                                    <span className="fa fa-facebook" />
-                                                </Link>
-                                                <Link href="#">
-                                                    <span className="fa fa-twitter" />
-                                                </Link>
-                                                <Link href="#">
-                                                    <span className="fa fa-skype" />
-                                                </Link>
-                                                <Link href="#">
-                                                    <span className="fa fa-instagram" />
-                                                </Link>
-                                            </div>
-                                            <Link href="#" className="theme-btn two">Interested</Link>
-                                        </div>
-                                    </div>
-                                </div> */}
                             </div>
                         </div>
                         {/*===============spacing==============*/}
                         <div className="pd_bottom_70" />
                         {/*===============spacing==============*/}
                     </section>
-                    {/*-newsteller-*/}
-                    {/* <section className="newsteller style_one bg_dark_1">
-                        
-                        <div className="pd_top_40" />
-                        
-                        <div className="auto-container">
-                            <div className="row align-items-center">
-                                <div className="col-lg-6 col-md-12">
-                                    <div className="content">
-                                        <h2>Join Our Mailing List</h2>
-                                        <p>For receiving our news and updates in your inbox directly. </p>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-md-12">
-                                    <div className="item_scubscribe">
-                                        <div className="input_group">
-                                            <form className="mc4wp-form" method="post" data-name="Subscibe">
-                                                <div className="mc4wp-form-fields">
-                                                    <input type="email" name="EMAIL" placeholder="Your email address" required />
-                                                    <input type="submit" defaultValue="Sign up" />
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className="pd_bottom_40" />
-                        
-                    </section> */}
                 </div>
 
             </Layout>

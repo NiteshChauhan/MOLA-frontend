@@ -1,6 +1,7 @@
+import withAdminAuth from "@/components/auth/withAdminAuth";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 
-export default function Dashboard() {
+function Dashboard() {
   return (
     <DashboardLayout>
       <h1>Dashboard</h1>
@@ -8,3 +9,5 @@ export default function Dashboard() {
     </DashboardLayout>
   );
 }
+
+export default withAdminAuth(Dashboard);

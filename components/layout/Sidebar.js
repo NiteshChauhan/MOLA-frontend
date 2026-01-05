@@ -3,16 +3,17 @@ import { useRouter } from "next/router";
 
 export default function Sidebar({ open, onClose }) {
   const router = useRouter();
+  const currentPath = router.asPath;
 
-  const isActive = (path) =>
-    router.pathname === path || router.pathname.startsWith(path);
+  // Exact match only
+  const isExactActive = (path) => currentPath === path;
 
   return (
     <aside className={`sidebar ${open ? "open" : ""}`}>
-      
-      {/* ---------- HEADER ---------- */}
+
+      {/* ===== HEADER ===== */}
       <div className="sidebar-header">
-        <Link href="/dashboard">
+        <Link href="/dashboard" onClick={onClose}>
           <img
             src="/assets/images/logo-default.png"
             className="sidebar-logo"
@@ -20,7 +21,7 @@ export default function Sidebar({ open, onClose }) {
           />
         </Link>
 
-        {/* Close icon → Mobile only */}
+        {/* Mobile close button */}
         <button
           className="close-btn d-mobile"
           onClick={onClose}
@@ -30,37 +31,44 @@ export default function Sidebar({ open, onClose }) {
         </button>
       </div>
 
-      {/* ---------- MENU ---------- */}
+      {/* ===== MENU ===== */}
       <nav className="sidebar-menu">
 
+        {/* Dashboard */}
         <Link
           href="/dashboard"
-          className={isActive("/dashboard") ? "active" : ""}
+          className={isExactActive("/dashboard") ? "active" : ""}
           onClick={onClose}
         >
           Dashboard
         </Link>
 
+        {/* Profile */}
         <Link
           href="/dashboard/profile"
-          className={isActive("/dashboard/profile") ? "active" : ""}
+          className={isExactActive("/dashboard/profile") ? "active" : ""}
           onClick={onClose}
         >
           Profile
         </Link>
 
-        {/* CMS Section */}
-        <div className="sidebar-section">
-          <span className="sidebar-section-title">CMS</span>
+        {/* CMS Pages */}
+        <Link
+          href="/admin/cms"
+          className={isExactActive("/admin/cms") ? "active" : ""}
+          onClick={onClose}
+        >
+          Pages
+        </Link>
 
-          <Link
-            href="/admin/cms"
-            className={isActive("/admin/cms") ? "active" : ""}
-            onClick={onClose}
-          >
-            Pages
-          </Link>
-        </div>
+        {/* CMS Downloads */}
+        <Link
+          href="/admin/cms/downloads"
+          className={isExactActive("/admin/cms/downloads") ? "active" : ""}
+          onClick={onClose}
+        >
+          Downloads
+        </Link>
 
       </nav>
     </aside>

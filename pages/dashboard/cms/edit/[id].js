@@ -15,7 +15,7 @@ function EditCmsPage() {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`/api/cms/admin/page/${id}`)
+    fetch(`/api/cms/admin/pages/${id}`)
       .then(res => res.json())
       .then(data => {
         setPage(data.page);
@@ -32,7 +32,7 @@ function EditCmsPage() {
       <CmsPageForm
         initialData={page}
         onSubmit={(formData) => {
-          fetch(`/api/cms/admin/page/${id}`, {
+          fetch(`/api/cms/admin/pages/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
