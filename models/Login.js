@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import { DataTypes } from "sequelize";
 import sequelize from "../lib/sequelize.js"; // adjust path as per your project
 import User from "./User.js"; // Assuming User.js is in the same directory

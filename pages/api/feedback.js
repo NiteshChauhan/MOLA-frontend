@@ -1,4 +1,5 @@
 // pages/api/feedback.js
+export const runtime = "nodejs";
 import Feedback from "../../models/Feedback.js";
 import sequelize from "../../lib/sequelize.js";
 import { logActivity } from "../../utils/logger.js";

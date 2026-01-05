@@ -1,4 +1,5 @@
 // models/Feedback.js
+export const runtime = "nodejs";
 import { DataTypes } from "sequelize";
 import sequelize from "../lib/sequelize.js"; // adjust path as per your project
 
