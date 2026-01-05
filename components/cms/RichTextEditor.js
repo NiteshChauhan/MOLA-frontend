@@ -12,12 +12,29 @@ export default function RichTextEditor({ value, onChange }) {
   const [mounted, setMounted] = useState(false);
 
   // 2. Only set mounted to true once we are in the browser
-  useEffect(() => {
+ useEffect(() => {
     setMounted(true);
-    // 3. Import CSS here or keep it at the top, 
-    // but inside useEffect is safest for some Next.js versions
+
+    (async () => {
+      const Quill = (await import("quill")).default;
+
+      const ImageResize = (await import("quill-image-resize-module-react")).default;
+      Quill.register("modules/imageResize", ImageResize);
+
+      const TableUI = (await import("quill-table-ui")).default;
+      await import("quill-table-ui/dist/index.css");
+
+      Quill.register(
+        {
+          "modules/tableUI": TableUI,
+        },
+        true
+      );
+    })();
+
     import("react-quill/dist/quill.snow.css");
   }, []);
+
 
   if (!mounted) {
     return <div className="min-h-[300px] bg-gray-50 border rounded-lg" />;
