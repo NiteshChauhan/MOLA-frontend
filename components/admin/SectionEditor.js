@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
+  loading: () => <p>Loading Editor...</p>,
 });
 
 export default function SectionEditor({ section, onSave }) {

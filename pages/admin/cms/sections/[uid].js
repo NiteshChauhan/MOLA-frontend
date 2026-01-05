@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import withAdminAuth from "@/components/auth/withAdminAuth";
