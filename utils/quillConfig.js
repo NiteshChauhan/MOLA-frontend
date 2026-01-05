@@ -1,8 +1,9 @@
 /**
  * utils/quillConfig.js
- * ✅ SSR-SAFE
- * ✅ Next.js + Vercel compatible
- * ✅ Supports Image Resize, Table UI, Image Upload
+ * ✅ SSR-safe
+ * ✅ Runtime-safe
+ * ❌ No table
+ * ❌ No image resize
  */
 
 /* ---------------- FORMATS ---------------- */
@@ -20,7 +21,6 @@ export const formats = [
   "image",
   "video",
   "code-block",
-  "table",
 ];
 
 /* ---------------- IMAGE UPLOAD HANDLER ---------------- */
@@ -46,7 +46,6 @@ export const imageHandler = function () {
       });
 
       const data = await res.json();
-
       if (!data?.url) {
         alert("Image upload failed");
         return;
@@ -62,7 +61,7 @@ export const imageHandler = function () {
   };
 };
 
-/* ---------------- MODULES (STATIC CONFIG ONLY) ---------------- */
+/* ---------------- MODULES ---------------- */
 export const modules = {
   toolbar: {
     container: [
@@ -71,17 +70,10 @@ export const modules = {
       [{ align: [] }],
       [{ list: "ordered" }, { list: "bullet" }],
       ["link", "image", "video", "code-block"],
-      ["table"],
       ["clean"],
     ],
     handlers: {
       image: imageHandler,
     },
   },
-
-  imageResize: {
-    modules: ["Resize", "DisplaySize"],
-  },
-
-  tableUI: true,
 };
