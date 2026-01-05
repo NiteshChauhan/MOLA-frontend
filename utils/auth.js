@@ -1,6 +1,7 @@
 // This file simulates using a library like bcrypt for password management.
 // You would need to install 'bcrypt' in a real project.
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
+
 
 // Define the salt rounds for hashing
 const saltRounds = 10;
