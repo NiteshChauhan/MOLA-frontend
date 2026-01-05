@@ -1,44 +1,56 @@
-// components/cms/RichTextEditor.js
 import dynamic from "next/dynamic";
+import { useMemo } from "react";
 import "react-quill/dist/quill.snow.css";
 
-const ReactQuill = dynamic(() => import("react-quill"), {
-  ssr: false,
-});
+/**
+ * IMPORTANT:
+ * react-quill is NOT a true ESM default export
+ * We must map `.default`
+ */
+const ReactQuill = dynamic(
+  () => import("react-quill").then((mod) => mod.default),
+  {
+    ssr: false,
+    loading: () => <p>Loading editor...</p>,
+  }
+);
 
 export default function RichTextEditor({ value, onChange }) {
-  if (typeof window === "undefined") return null;
+  const modules = useMemo(
+    () => ({
+      toolbar: [
+        [{ header: [1, 2, 3, false] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ align: [] }],
+        ["link", "image", "video"],
+        ["clean"],
+      ],
+    }),
+    []
+  );
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "list",
+    "bullet",
+    "align",
+    "link",
+    "image",
+    "video",
+  ];
 
   return (
     <ReactQuill
       theme="snow"
-      value={value}
+      value={value || ""}
       onChange={onChange}
-      modules={{
-        toolbar: [
-          [{ header: [1, 2, 3, false] }],
-          ["bold", "italic", "underline", "strike"],
-          [{ list: "ordered" }, { list: "bullet" }],
-          ["blockquote", "code-block"],
-          [{ align: [] }],
-          ["link", "image"],
-          ["clean"],
-        ],
-      }}
-      formats={[
-        "header",
-        "bold",
-        "italic",
-        "underline",
-        "strike",
-        "list",
-        "bullet",
-        "blockquote",
-        "code-block",
-        "align",
-        "link",
-        "image",
-      ]}
+      modules={modules}
+      formats={formats}
     />
   );
 }
