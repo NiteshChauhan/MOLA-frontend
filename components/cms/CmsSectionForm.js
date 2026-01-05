@@ -1,5 +1,9 @@
 import { useState } from "react";
-import RichTextEditor from "./RichTextEditor";
+// import RichTextEditor from "./RichTextEditor";
+
+// Inside CmsSectionForm.js
+import dynamic from "next/dynamic";
+const RichTextEditor = dynamic(() => import("./RichTextEditor"), { ssr: false });
 
 export default function CmsSectionForm({ onSave }) {
   const [title, setTitle] = useState("");
