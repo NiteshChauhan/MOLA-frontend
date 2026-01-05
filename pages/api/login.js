@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import User from "../../models/User.js";
 import Login from "../../models/Login.js";
 import { withLogging } from "../../middleware/logMiddleware.js";
