@@ -28,63 +28,101 @@ export default function TrashDownloadList() {
     <div
       style={{
         background: "#fff",
-        borderRadius: 12,
-        boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
-        overflowX: "auto",
+        borderRadius: 14,
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+        padding: 16,
       }}
     >
-      <table className="table" style={{ width: "100%", margin: 0 }}>
-        <thead>
-          <tr style={{ background: "#f9fafb" }}>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Status</th>
-            <th style={{ width: 120 }}>Actions</th>
-          </tr>
-        </thead>
+      {/* ================= DESKTOP TABLE ================= */}
+      <div className="desktop-only">
+        <div style={{ overflowX: "auto" }}>
+          <table className="table" style={{ width: "100%", margin: 0 }}>
+            <thead>
+              <tr style={{ background: "#f9fafb" }}>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th style={{ width: 120 }}>Actions</th>
+              </tr>
+            </thead>
 
-        <tbody>
-          {items.map((item) => (
-            <tr key={item.iddownload}>
-              <td>
-                <strong>{item.title}</strong>
-                {item.short_description && (
-                  <div style={{ fontSize: 12, color: "#6b7280" }}>
-                    {item.short_description}
-                  </div>
-                )}
-              </td>
+            <tbody>
+              {items.map((item) => (
+                <tr key={item.iddownload}>
+                  <td>
+                    <strong>{item.title}</strong>
+                    {item.short_description && (
+                      <div style={{ fontSize: 12, color: "#6b7280" }}>
+                        {item.short_description}
+                      </div>
+                    )}
+                  </td>
 
-              <td>{item.category}</td>
+                  <td>{item.category}</td>
 
-              <td>
-                <span
-                  style={{
-                    padding: "4px 8px",
-                    borderRadius: 6,
-                    fontSize: 12,
-                    background: "#fee2e2",
-                    color: "#991b1b",
-                  }}
-                >
-                  deleted
-                </span>
-              </td>
+                  <td>
+                    <span
+                      style={{
+                        padding: "4px 8px",
+                        borderRadius: 6,
+                        fontSize: 12,
+                        background: "#fee2e2",
+                        color: "#991b1b",
+                      }}
+                    >
+                      deleted
+                    </span>
+                  </td>
 
-              <td>
-                <button
-                  onClick={() => setRestoreItem(item)}
-                  style={restoreBtn}
-                >
-                  Restore
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                  <td>
+                    <button
+                      onClick={() => setRestoreItem(item)}
+                      style={restoreBtn}
+                    >
+                      Restore
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-      {/* ✅ RESTORE CONFIRM */}
+      {/* ================= MOBILE CARDS ================= */}
+      <div className="mobile-only">
+        {items.map((item) => (
+          <div key={item.iddownload} className="trash-card">
+            <div>
+              <strong>{item.title}</strong>
+              {item.short_description && (
+                <p className="muted">{item.short_description}</p>
+              )}
+            </div>
+
+            <div className="card-row">
+              <span>Category:</span>
+              <span>{item.category}</span>
+            </div>
+
+            <div className="card-row">
+              <span>Status:</span>
+              <span className="badge-deleted">Deleted</span>
+            </div>
+
+            <div className="card-actions">
+              <button
+                onClick={() => setRestoreItem(item)}
+                style={restoreBtn}
+              >
+                Restore
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ================= RESTORE CONFIRM ================= */}
       {restoreItem && (
         <ConfirmModal
           title="Restore Download?"
@@ -104,6 +142,62 @@ export default function TrashDownloadList() {
           }}
         />
       )}
+
+      {/* ================= RESPONSIVE STYLES ================= */}
+      <style jsx>{`
+        .desktop-only {
+          display: none;
+        }
+
+        .mobile-only {
+          display: block;
+        }
+
+        .trash-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 14px;
+          margin-bottom: 14px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-row {
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+          margin-top: 6px;
+        }
+
+        .card-actions {
+          margin-top: 10px;
+        }
+
+        .muted {
+          font-size: 12px;
+          color: #6b7280;
+          margin-top: 4px;
+        }
+
+        .badge-deleted {
+          background: #fee2e2;
+          color: #991b1b;
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+        }
+
+        @media (min-width: 992px) {
+          .desktop-only {
+            display: block;
+          }
+
+          .mobile-only {
+            display: none;
+          }
+        }
+      `}</style>
     </div>
   );
 }
@@ -113,6 +207,6 @@ const restoreBtn = {
   background: "none",
   border: "none",
   color: "#16a34a",
-  fontWeight: 600,
+  fontWeight: 700,
   cursor: "pointer",
 };

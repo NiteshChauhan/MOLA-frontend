@@ -21,13 +21,11 @@ export default function DownloadForm({ onAdded }) {
 
       if (!res.ok) throw new Error("Upload failed");
 
-      // ✅ call optional parent callback to update list without reload
-      if (onAdded) onAdded();
+      onAdded?.();
 
       setToast({ message: "Download added successfully", type: "success" });
       e.target.reset();
       setFile(null);
-      onAdded?.();
     } catch (err) {
       console.error(err);
       setToast({ message: "Failed to add download", type: "error" });
@@ -41,15 +39,21 @@ export default function DownloadForm({ onAdded }) {
       style={{
         background: "#fff",
         padding: 24,
-        borderRadius: 12,
-        boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+        borderRadius: 14,
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
         marginBottom: 30,
         position: "relative",
       }}
     >
       <h3 style={{ marginBottom: 20 }}>Add New Download</h3>
 
-      <form onSubmit={submit} style={{ display: "grid", gap: 16 }}>
+      <form
+        onSubmit={submit}
+        style={{
+          display: "grid",
+          gap: 16,
+        }}
+      >
         {/* TITLE */}
         <div>
           <label className="form-label">Title</label>
@@ -73,13 +77,7 @@ export default function DownloadForm({ onAdded }) {
         </div>
 
         {/* CATEGORY + FILE */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16,
-          }}
-        >
+        <div className="df-grid">
           <div>
             <label className="form-label">Category</label>
             <select name="category" className="form-control">
@@ -105,22 +103,23 @@ export default function DownloadForm({ onAdded }) {
           type="submit"
           disabled={loading}
           style={{
-            marginTop: 10,
-            padding: "0px 0px",
+            marginTop: 12,
+            padding: "10px 22px",
             background: "#2563eb",
             color: "#fff",
             border: "none",
-            borderRadius: 8,
-            fontWeight: 600,
-            cursor: "pointer",
-            width: "fit-content",
+            borderRadius: 10,
+            fontWeight: 700,
+            cursor: loading ? "not-allowed" : "pointer",
+            width: "100%",
+            maxWidth: 220,
           }}
         >
           {loading ? "Uploading..." : "Add Download"}
         </button>
       </form>
 
-      {/* ✅ TOAST */}
+      {/* TOAST */}
       {toast && (
         <Toast
           message={toast.message}
@@ -128,6 +127,25 @@ export default function DownloadForm({ onAdded }) {
           onClose={() => setToast(null)}
         />
       )}
+
+      {/* RESPONSIVE STYLES */}
+      <style jsx>{`
+        .df-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+          .df-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          button {
+            width: fit-content;
+          }
+        }
+      `}</style>
     </div>
   );
 }

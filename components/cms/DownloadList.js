@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import EditDownloadModal from "@/components/cms/EditDownloadModal";
 import ConfirmModal from "@/components/common/ConfirmModal";
+import StatusBadge from "@/components/admin/ui/StatusBadge";
+
 
 export default function DownloadList({ refreshKey }) {
   const [items, setItems] = useState([]);
@@ -51,20 +53,13 @@ export default function DownloadList({ refreshKey }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 12,
-        boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+        borderRadius: 14,
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
         padding: 16,
       }}
     >
       {/* 🔍 FILTER BAR */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "2fr 1fr 1fr",
-          gap: 12,
-          marginBottom: 16,
-        }}
-      >
+      <div className="filter-grid">
         <input
           placeholder="Search title or description..."
           className="form-control"
@@ -93,10 +88,13 @@ export default function DownloadList({ refreshKey }) {
         </select>
       </div>
 
-      {/* TABLE */}
-      {filteredItems.length === 0 ? (
+      {/* EMPTY */}
+      {filteredItems.length === 0 && (
         <p style={{ color: "#6b7280" }}>No matching downloads</p>
-      ) : (
+      )}
+
+      {/* DESKTOP TABLE */}
+      <div className="desktop-only">
         <div style={{ overflowX: "auto" }}>
           <table className="table" style={{ width: "100%", margin: 0 }}>
             <thead>
@@ -124,21 +122,7 @@ export default function DownloadList({ refreshKey }) {
                   <td>{item.category}</td>
 
                   <td>
-                    <span
-                      style={{
-                        padding: "4px 8px",
-                        borderRadius: 6,
-                        fontSize: 12,
-                        background:
-                          item.status === "active" ? "#dcfce7" : "#fee2e2",
-                        color:
-                          item.status === "active"
-                            ? "#166534"
-                            : "#991b1b",
-                      }}
-                    >
-                      {item.status}
-                    </span>
+                    <StatusBadge status={item.status} />
                   </td>
 
                   <td>
@@ -153,13 +137,9 @@ export default function DownloadList({ refreshKey }) {
                   </td>
 
                   <td>
-                    <button
-                      onClick={() => setEditing(item)}
-                      style={actionBtn}
-                    >
+                    <button onClick={() => setEditing(item)} style={actionBtn}>
                       Edit
                     </button>
-
                     <button
                       onClick={() => setConfirmItem(item)}
                       style={{ ...actionBtn, color: "#dc2626" }}
@@ -172,7 +152,54 @@ export default function DownloadList({ refreshKey }) {
             </tbody>
           </table>
         </div>
-      )}
+      </div>
+
+      {/* MOBILE CARDS */}
+      <div className="mobile-only">
+        {filteredItems.map((item) => (
+          <div key={item.iddownload} className="download-card">
+            <div>
+              <strong>{item.title}</strong>
+              {item.short_description && (
+                <p className="muted">{item.short_description}</p>
+              )}
+            </div>
+
+            <div className="card-row">
+              <span>Category:</span>
+              <span>{item.category}</span>
+            </div>
+
+            <div className="card-row">
+              <span>Status:</span>
+              <StatusBadge status={item.status} />
+            </div>
+
+            <div className="card-row">
+              <a
+                href={item.file_path}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link"
+              >
+                View PDF
+              </a>
+            </div>
+
+            <div className="card-actions">
+              <button onClick={() => setEditing(item)} style={actionBtn}>
+                Edit
+              </button>
+              <button
+                onClick={() => setConfirmItem(item)}
+                style={{ ...actionBtn, color: "#dc2626" }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* DELETE */}
       {confirmItem && (
@@ -202,6 +229,69 @@ export default function DownloadList({ refreshKey }) {
           }}
         />
       )}
+
+      {/* RESPONSIVE STYLES */}
+      <style jsx>{`
+        .filter-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+          margin-bottom: 16px;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+
+        .mobile-only {
+          display: block;
+        }
+
+        .download-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 14px;
+          margin-bottom: 14px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-row {
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+          margin-top: 6px;
+        }
+
+        .card-actions {
+          margin-top: 10px;
+        }
+
+        .muted {
+          font-size: 12px;
+          color: #6b7280;
+          margin-top: 4px;
+        }
+
+        .link {
+          color: #2563eb;
+          font-weight: 600;
+        }
+
+        @media (min-width: 992px) {
+          .filter-grid {
+            grid-template-columns: 2fr 1fr 1fr;
+          }
+
+          .desktop-only {
+            display: block;
+          }
+
+          .mobile-only {
+            display: none;
+          }
+        }
+      `}</style>
     </div>
   );
 }
