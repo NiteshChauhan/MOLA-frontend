@@ -14,8 +14,14 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 
 function SectionItem({ section, index, onEdit }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
-    useSortable({ id: section.idsection });
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: section.idsection });
 
   return (
     <div
@@ -26,29 +32,37 @@ function SectionItem({ section, index, onEdit }) {
         background: "#ffffff",
         borderRadius: 14,
         border: isDragging ? "2px solid #2563eb" : "1px solid #e5e7eb",
-        padding: "16px 18px",
+        padding: 16,
         marginBottom: 14,
         display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
+        flexDirection: "column",
+        gap: 14,
         boxShadow: isDragging
           ? "0 20px 40px rgba(37,99,235,0.25)"
           : "0 6px 14px rgba(0,0,0,0.06)",
       }}
     >
-      {/* LEFT */}
-      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      {/* TOP ROW */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          flexWrap: "wrap",
+        }}
+      >
         {/* DRAG HANDLE */}
         <div
           {...attributes}
           {...listeners}
           style={{
             cursor: "grab",
-            padding: 6,
+            padding: 8,
             borderRadius: 6,
             background: "#f3f4f6",
             color: "#6b7280",
             fontSize: 18,
+            touchAction: "none",
           }}
         >
           ☰
@@ -72,26 +86,22 @@ function SectionItem({ section, index, onEdit }) {
           {index + 1}
         </div>
 
-        {/* TITLE */}
-        <div>
+        {/* TITLE + TYPE */}
+        <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
               fontWeight: 700,
               fontSize: 15,
               color: "#111827",
-              maxWidth: 420,
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
+              wordBreak: "break-word",
             }}
           >
             {section.section_title}
           </div>
 
-          {/* TYPE BADGE */}
           <div
             style={{
-              marginTop: 4,
+              marginTop: 6,
               fontSize: 11,
               fontWeight: 700,
               color:
@@ -103,7 +113,7 @@ function SectionItem({ section, index, onEdit }) {
                   ? "#fef3c7"
                   : "#e0e7ff",
               display: "inline-block",
-              padding: "3px 8px",
+              padding: "4px 10px",
               borderRadius: 999,
             }}
           >
@@ -112,21 +122,30 @@ function SectionItem({ section, index, onEdit }) {
         </div>
       </div>
 
-      {/* EDIT */}
-      <button
-        onClick={() => onEdit(section)}
+      {/* ACTIONS */}
+      <div
         style={{
-          background: "#2563eb",
-          color: "#fff",
-          border: "none",
-          padding: "8px 18px",
-          borderRadius: 10,
-          fontWeight: 700,
-          cursor: "pointer",
+          display: "flex",
+          justifyContent: "flex-end",
         }}
       >
-        Edit
-      </button>
+        <button
+          onClick={() => onEdit(section)}
+          style={{
+            background: "#2563eb",
+            color: "#fff",
+            border: "none",
+            padding: "10px 22px",
+            borderRadius: 10,
+            fontWeight: 700,
+            cursor: "pointer",
+            width: "100%",
+            maxWidth: 160,
+          }}
+        >
+          Edit
+        </button>
+      </div>
     </div>
   );
 }
@@ -137,8 +156,12 @@ export default function CmsSectionList({ sections, onReorder, onEdit }) {
   const onDragEnd = ({ active, over }) => {
     if (!over || active.id === over.id) return;
 
-    const oldIndex = sections.findIndex(i => i.idsection === active.id);
-    const newIndex = sections.findIndex(i => i.idsection === over.id);
+    const oldIndex = sections.findIndex(
+      (i) => i.idsection === active.id
+    );
+    const newIndex = sections.findIndex(
+      (i) => i.idsection === over.id
+    );
 
     onReorder(
       arrayMove(sections, oldIndex, newIndex).map((s, i) => ({
@@ -155,11 +178,16 @@ export default function CmsSectionList({ sections, onReorder, onEdit }) {
       onDragEnd={onDragEnd}
     >
       <SortableContext
-        items={sections.map(s => s.idsection)}
+        items={sections.map((s) => s.idsection)}
         strategy={verticalListSortingStrategy}
       >
         {sections.map((s, i) => (
-          <SectionItem key={s.idsection} section={s} index={i} onEdit={onEdit} />
+          <SectionItem
+            key={s.idsection}
+            section={s}
+            index={i}
+            onEdit={onEdit}
+          />
         ))}
       </SortableContext>
     </DndContext>

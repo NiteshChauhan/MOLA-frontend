@@ -16,19 +16,20 @@ function CmsPages() {
   return (
     <AdminLayout title="CMS Pages">
       {/* ===== PAGE HEADER ===== */}
-      <div style={{ marginBottom: 40 }}>
+      <div style={{ marginBottom: 30 }}>
         <div
           style={{
             display: "flex",
+            flexWrap: "wrap",
+            gap: 20,
             justifyContent: "space-between",
             alignItems: "flex-end",
-            gap: 20,
           }}
         >
           <div>
             <h1
               style={{
-                fontSize: 40,
+                fontSize: 36,
                 fontWeight: 800,
                 color: "#0f172a",
                 marginBottom: 6,
@@ -36,7 +37,7 @@ function CmsPages() {
             >
               CMS Pages
             </h1>
-            <p style={{ fontSize: 16, color: "#64748b" }}>
+            <p style={{ fontSize: 15, color: "#64748b" }}>
               Create, edit, and manage your website pages.
             </p>
           </div>
@@ -46,12 +47,13 @@ function CmsPages() {
             style={{
               background: "#2563eb",
               color: "#fff",
-              padding: "10px 18px",
+              padding: "12px 20px",
               borderRadius: 10,
               fontWeight: 600,
               fontSize: 14,
               textDecoration: "none",
               boxShadow: "0 6px 16px rgba(37,99,235,.25)",
+              whiteSpace: "nowrap",
             }}
           >
             + Add Page
@@ -59,15 +61,17 @@ function CmsPages() {
         </div>
       </div>
 
-      {/* ===== TABLE CARD ===== */}
+      {/* ===== DESKTOP TABLE ===== */}
       <div
         style={{
           background: "#fff",
           borderRadius: 14,
           border: "1px solid #e5e7eb",
           boxShadow: "0 10px 30px rgba(0,0,0,.06)",
-          overflow: "hidden",
+          overflowX: "auto",
+          display: "none",
         }}
+        className="cms-table"
       >
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead style={{ background: "#f9fafb" }}>
@@ -80,43 +84,17 @@ function CmsPages() {
           </thead>
 
           <tbody>
-            {pages.length === 0 && (
-              <tr>
-                <td
-                  colSpan="4"
-                  style={{
-                    padding: 30,
-                    textAlign: "center",
-                    color: "#64748b",
-                    fontSize: 14,
-                  }}
-                >
-                  No CMS pages found.
-                </td>
-              </tr>
-            )}
-
             {pages.map((page) => (
-              <tr
-                key={page.idpage}
-                style={{
-                  borderTop: "1px solid #e5e7eb",
-                }}
-              >
+              <tr key={page.idpage} style={{ borderTop: "1px solid #e5e7eb" }}>
                 <td style={tdStyle}>
-                  <div style={{ fontWeight: 600, color: "#0f172a" }}>
-                    {page.page_title}
-                  </div>
+                  <strong>{page.page_title}</strong>
                 </td>
-
                 <td style={{ ...tdStyle, color: "#64748b" }}>
                   /{page.page_slug}
                 </td>
-
                 <td style={tdStyle}>
                   <StatusBadge status={page.page_status} />
                 </td>
-
                 <td style={{ ...tdStyle, textAlign: "right" }}>
                   <div style={{ display: "inline-flex", gap: 8 }}>
                     <Link
@@ -125,7 +103,6 @@ function CmsPages() {
                     >
                       Edit
                     </Link>
-
                     <Link
                       href={`/admin/cms/sections/${page.page_uid}`}
                       style={{
@@ -144,11 +121,100 @@ function CmsPages() {
           </tbody>
         </table>
       </div>
+
+      {/* ===== MOBILE CARDS ===== */}
+      <div
+        style={{
+          display: "grid",
+          gap: 16,
+        }}
+        className="cms-cards"
+      >
+        {pages.length === 0 && (
+          <div
+            style={{
+              padding: 20,
+              textAlign: "center",
+              color: "#64748b",
+              fontSize: 14,
+            }}
+          >
+            No CMS pages found.
+          </div>
+        )}
+
+        {pages.map((page) => (
+          <div
+            key={page.idpage}
+            style={{
+              background: "#ffffff",
+              borderRadius: 14,
+              border: "1px solid #e5e7eb",
+              padding: 16,
+              boxShadow: "0 6px 14px rgba(0,0,0,0.06)",
+            }}
+          >
+            <div style={{ fontWeight: 700, fontSize: 16 }}>
+              {page.page_title}
+            </div>
+
+            <div style={{ color: "#64748b", fontSize: 13, marginTop: 4 }}>
+              /{page.page_slug}
+            </div>
+
+            <div style={{ marginTop: 10 }}>
+              <StatusBadge status={page.page_status} />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                gap: 10,
+                marginTop: 14,
+              }}
+            >
+              <Link
+                href={`/admin/cms/edit/${page.page_uid}`}
+                style={{ ...actionBtn, flex: 1, textAlign: "center" }}
+              >
+                Edit
+              </Link>
+
+              <Link
+                href={`/admin/cms/sections/${page.page_uid}`}
+                style={{
+                  ...actionBtn,
+                  flex: 1,
+                  textAlign: "center",
+                  background: "#eff6ff",
+                  color: "#2563eb",
+                  borderColor: "#bfdbfe",
+                }}
+              >
+                Sections
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ===== RESPONSIVE SWITCH ===== */}
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .cms-table {
+            display: block;
+          }
+          .cms-cards {
+            display: none;
+          }
+        }
+      `}</style>
     </AdminLayout>
   );
 }
 
 export default withAdminAuth(CmsPages);
+
 /* ===== INLINE STYLES ===== */
 
 const thStyle = {
@@ -166,7 +232,7 @@ const tdStyle = {
 };
 
 const actionBtn = {
-  padding: "6px 12px",
+  padding: "8px 12px",
   borderRadius: 8,
   border: "1px solid #e5e7eb",
   fontSize: 13,
